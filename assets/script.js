@@ -1,126 +1,98 @@
 // Create an array of objects that hold questions and answers
-var questions = [
-    {
-        id: 0,
-        q: "What is the proper HTML tag to use for a image element?",
-        // Create and array for the answers
-        a: [
-            { text: "<picture>", isCorrect: false },
-            { text: "<img>", isCorrect: true },
-            { text: "<image>", isCorrect: false },
-            { text: "<photo>", isCorrect: false }
-           ]
-    },
 
-    {
-        id: 1,
-        q: "What is the proper way to annotate a class in css?",
-        // Create an array for the answers
-        a: [
-            { text: ".class", isCorrect: true },
-            { text: "#class", isCorrect: false },
-            { text: "*class", isCorrect: false },
-            { text: "$class", isCorrect: false } 
-        ]
-    },
+const Questions = [{
+    id: 0,
+    q: "What do we use to change the style of an elment in JavaScript?",
+    a: [{ text: ".setAttribut()", isCorrect: true },
+        { text: ".splice()", isCorrect: false },
+        { text: ".querySelector", isCorrect: false },
+        { text: ".elementStyle", isCorrect: false }
+    ]
 
-    {
-        id: 2,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
-//TODO:
-    {
-        id: 3,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
+},
+{
+    id: 1,
+    q: "How do you declare a string in JavaScript?",
+    a: [{ text: "var myVar = []", isCorrect: false, },
+        { text: "var myVar = {}", isCorrect: false },
+        { text: "var myVar = \"\"", isCorrect: true },
+        { text: "var myVar = ()", isCorrect: false }
+    ]
 
-    {
-        id: 4,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
+},
+{
+    id: 2,
+    q: "How do we tell a number to \"increment\" in JavaScript?",
+    a: [{ text: "i--", isCorrect: false },
+        { text: "i-=", isCorrect: false },
+        { text: "i+=", isCorrect: false },
+        { text: "i++", isCorrect: true }
+    ]
 
-    {
-        id: 5,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
-
-    {
-        id: 6,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
-
-    {
-        id: 7,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
-
-    {
-        id: 8,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    },
-
-    {
-        id: 9,
-        q: "What is the proper method to insert an item into the beginning of an array?",
-        // Create an array for the answers
-        a: [
-            { text: ".splice()", isCorrect: false },
-            { text: ".pop()", isCorrect: false },
-            { text: ".concact()", isCorrect: false },
-            { text: ".unshift()", isCorrect: true }
-        ]
-    }
-];
-
-function start() {
-    var start = document.getElementById("quiz")
 }
+
+]
+
+
+// Variables From HTML
+var timer = document.getElementById("timer");
+var start = document.querySelector(".start-button");
+var startBtn = document.getElementById("startBtn");
+var quiz = document.getElementById("quiz");
+var result = document.getElementById("result")
+
+
+// Functions
+function countdown(){
+    var timeLeft = 120; 
+    var timeInterval = setInterval(function () {
+    timeLeft --;
+    timer.textContent = timeLeft;
+    if (timeLeft === 0){
+        clearInterval(timeInterval);
+    }
+    }, 1000);
+};
+
+var startIterate = true;
+function iterate(id) {
+    // Get the question from HTML
+    const question = document.getElementById("question");
+    // Add the text we want to display from our Questions array
+    question.innerText = Questions[id].q;
+
+   // Get the answers from HTML
+    var answer1 = document.getElementById("ans1");
+    var answer2 = document.getElementById("ans2");
+    var answer3 = document.getElementById("ans3");
+    var answer4 = document.getElementById("ans4");
+
+    // Add the text we want to display from oour Questions array
+    answer1.innerText = Questions[id].a[0].text;
+    answer2.innerText = Questions[id].a[1].text;
+    answer3.innerText = Questions[id].a[2].text;
+    answer4.innerText = Questions[id].a[3].text;
+
+    // Add true or false using isCorrect boolean
+    answer1.value = Questions[id].a[0].isCorrect;
+    answer2.value = Questions[id].a[1].isCorrect;
+    answer3.value = Questions[id].a[2].isCorrect;
+    answer4.value = Questions[id].a[3].isCorrect;
+
+};
+    
+
+
+startBtn.addEventListener("click", function (){
+    if (quiz.style.display === "none") {
+        quiz.style.display = "flex";
+        
+    } else {
+        quiz.style.display = "none";
+    }
+    start.setAttribute("style", "display: none;");
+    countdown();
+    if (startIterate) {
+        iterate("0")
+    }
+});
