@@ -1,6 +1,5 @@
 // Create an array of objects that hold questions and answers
-
-const Questions = [{
+var Questions = [{
     id: 0,
     q: "What do we use to change the style of an elment in JavaScript?",
     a: [{ text: ".setAttribut()", isCorrect: true },
@@ -31,7 +30,7 @@ const Questions = [{
 
 }
 
-]
+];
 
 
 // Variables From HTML
@@ -39,7 +38,9 @@ var timer = document.getElementById("timer");
 var start = document.querySelector(".start-button");
 var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
-var result = document.getElementById("result")
+var result = document.getElementById("result");
+var answerBtn = document.querySelector(".answer")
+//var isCorrect = document.Questions[a].isCorrect;
 
 
 // Functions
@@ -54,6 +55,7 @@ function countdown(){
     }, 1000);
 };
 
+// Add question iteration so we can rotate through questions
 var startIterate = true;
 function iterate(id) {
     // Get the question from HTML
@@ -67,7 +69,7 @@ function iterate(id) {
     var answer3 = document.getElementById("ans3");
     var answer4 = document.getElementById("ans4");
 
-    // Add the text we want to display from oour Questions array
+    // Add the text we want to display from our Questions array
     answer1.innerText = Questions[id].a[0].text;
     answer2.innerText = Questions[id].a[1].text;
     answer3.innerText = Questions[id].a[2].text;
@@ -79,10 +81,14 @@ function iterate(id) {
     answer3.value = Questions[id].a[2].isCorrect;
     answer4.value = Questions[id].a[3].isCorrect;
 
+    // event listener for answer buttons
+   
+
 };
+
     
 
-
+// Add start button to start the quiz with iterate function within
 startBtn.addEventListener("click", function (){
     if (quiz.style.display === "none") {
         quiz.style.display = "flex";
@@ -95,4 +101,10 @@ startBtn.addEventListener("click", function (){
     if (startIterate) {
         iterate("0")
     }
+
+    answerBtn.addEventListener("click", function(){
+        if (isCorrect) {
+         timeLeft--;
+        } 
+     });
 });
