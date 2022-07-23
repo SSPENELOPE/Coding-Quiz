@@ -39,13 +39,15 @@ var start = document.querySelector(".start-button");
 var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
 var result = document.getElementById("result");
-var answerBtn = document.querySelector(".answer")
-//var isCorrect = document.Questions[a].isCorrect;
+var answerBtn = document.querySelector(".answer");
+
+
 
 
 // Functions
+var timeLeft = 120; 
 function countdown(){
-    var timeLeft = 120; 
+    //var timeLeft = 120; 
     var timeInterval = setInterval(function () {
     timeLeft --;
     timer.textContent = timeLeft;
@@ -54,6 +56,9 @@ function countdown(){
     }
     }, 1000);
 };
+
+
+
 
 // Add question iteration so we can rotate through questions
 var startIterate = true;
@@ -81,9 +86,17 @@ function iterate(id) {
     answer3.value = Questions[id].a[2].isCorrect;
     answer4.value = Questions[id].a[3].isCorrect;
 
-    // event listener for answer buttons
-   
-
+// TODO: top answer button will cycle the questions, need to fix timer and proper question cycle
+    answerBtn.addEventListener("click", function(isCorrect){
+        if (isCorrect) {
+            id++;
+            iterate(id);
+        } 
+        if (isCorrect === "false") {
+            timeLeft -= 10;
+        }
+     });
+    
 };
 
     
@@ -98,13 +111,14 @@ startBtn.addEventListener("click", function (){
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    if (startIterate) {
-        iterate("0")
-    }
-
-    answerBtn.addEventListener("click", function(){
-        if (isCorrect) {
-         timeLeft--;
-        } 
-     });
+    iterate("0")
 });
+
+
+
+
+
+
+ 
+
+
