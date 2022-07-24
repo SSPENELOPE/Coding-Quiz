@@ -30,6 +30,8 @@ var Questions = [{
 
 }
 
+    //TODO: add an empty id to stop the clock when all questions have been answered
+
 ];
 
 
@@ -89,8 +91,12 @@ function iterate(id) {
         if  (answer1.value == "true") {
             id++;
             iterate(id);
+            result.innerText = "True!";
+            result.style.color = "green";
         } else {
             timeLeft -= 10;
+            result.innerText = "False!"
+            result.style.color = "red";
         }
      });
 
@@ -98,8 +104,12 @@ function iterate(id) {
         if (answer2.value == "true") {
             id++;
             iterate(id);
+            result.innerText = "True!";
+            result.style.color = "green";
         } else {
             timeLeft -= 10;
+            result.innerText = "False!"
+            result.style.color = "red";
         }
      });
 
@@ -107,8 +117,12 @@ function iterate(id) {
         if (answer3.value == "true") {
             id++;
             iterate(id);
+            result.innerText = "True!";
+            result.style.color = "green";
         } else {
             timeLeft -= 10;
+            result.innerText = "False!"
+            result.style.color = "red";
         }
      });
 
@@ -116,8 +130,12 @@ function iterate(id) {
         if (answer4.value =="true") {
             id++;
             iterate(id);
+            result.innerText = "True!";
+            result.style.color = "green";
         } else {
             timeLeft -= 10;
+            result.innerText = "False!"
+            result.style.color = "red";
         }
      });
     
