@@ -84,7 +84,7 @@ function iterate(id) {
     answer3.value = Questions[id].a[2].isCorrect;
     answer4.value = Questions[id].a[3].isCorrect;
 
-// TODO: top answer button will cycle the questions, need to fix timer and proper question cycle
+    //Event Listeners for answer buttons
     answer1.addEventListener("click", function(){
         if  (answer1.value == "true") {
             id++;
