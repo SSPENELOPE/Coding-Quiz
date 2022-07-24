@@ -33,21 +33,20 @@ var Questions = [{
 ];
 
 
-// Variables From HTML
+// Variables
 var timer = document.getElementById("timer");
 var start = document.querySelector(".start-button");
 var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
 var result = document.getElementById("result");
 var answerBtn = document.querySelector(".answer");
-
+var timeLeft = 120;
 
 
 
 // Functions
-var timeLeft = 120; 
+
 function countdown(){
-    //var timeLeft = 120; 
     var timeInterval = setInterval(function () {
     timeLeft --;
     timer.textContent = timeLeft;
@@ -61,7 +60,6 @@ function countdown(){
 
 
 // Add question iteration so we can rotate through questions
-var startIterate = true;
 function iterate(id) {
     // Get the question from HTML
     const question = document.getElementById("question");
@@ -87,12 +85,38 @@ function iterate(id) {
     answer4.value = Questions[id].a[3].isCorrect;
 
 // TODO: top answer button will cycle the questions, need to fix timer and proper question cycle
-    answerBtn.addEventListener("click", function(isCorrect){
-        if (isCorrect) {
+    answer1.addEventListener("click", function(){
+        if  (answer1.value == "true") {
             id++;
             iterate(id);
-        } 
-        if (isCorrect === "false") {
+        } else {
+            timeLeft -= 10;
+        }
+     });
+
+     answer2.addEventListener("click", function(){
+        if (answer2.value == "true") {
+            id++;
+            iterate(id);
+        } else {
+            timeLeft -= 10;
+        }
+     });
+
+     answer3.addEventListener("click", function(){
+        if (answer3.value == "true") {
+            id++;
+            iterate(id);
+        } else {
+            timeLeft -= 10;
+        }
+     });
+
+     answer4.addEventListener("click", function(){
+        if (answer4.value =="true") {
+            id++;
+            iterate(id);
+        } else {
             timeLeft -= 10;
         }
      });
