@@ -30,6 +30,28 @@ var Questions = [{
 
 }
 
+{
+    id: 3,
+    q: "How do we tell a number to \"increment\" in JavaScript?",
+    a: [{ text: "i--", isCorrect: false },
+        { text: "i-=", isCorrect: false },
+        { text: "i+=", isCorrect: false },
+        { text: "i++", isCorrect: true }
+    ]
+
+}
+
+{
+    id: 4,
+    q: "How do we tell a number to \"increment\" in JavaScript?",
+    a: [{ text: "i--", isCorrect: false },
+        { text: "i-=", isCorrect: false },
+        { text: "i+=", isCorrect: false },
+        { text: "i++", isCorrect: true }
+    ]
+
+}
+
     //TODO: add an empty id to stop the clock when all questions have been answered
 
 ];
