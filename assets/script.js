@@ -28,26 +28,26 @@ var Questions = [{
         { text: "i++", isCorrect: true }
     ]
 
-}
+},
 
 {
     id: 3,
-    q: "How do we tell a number to \"increment\" in JavaScript?",
+    q: "A random question",
     a: [{ text: "i--", isCorrect: false },
-        { text: "i-=", isCorrect: false },
+        { text: "i-=", isCorrect: true },
         { text: "i+=", isCorrect: false },
-        { text: "i++", isCorrect: true }
+        { text: "i++", isCorrect: false }
     ]
 
-}
+},
 
 {
     id: 4,
     q: "How do we tell a number to \"increment\" in JavaScript?",
     a: [{ text: "i--", isCorrect: false },
         { text: "i-=", isCorrect: false },
-        { text: "i+=", isCorrect: false },
-        { text: "i++", isCorrect: true }
+        { text: "i+=", isCorrect: true },
+        { text: "i++", isCorrect: false }
     ]
 
 }
@@ -115,11 +115,11 @@ function iterate(id) {
             iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else {
+        } else if (answer1.value == "false") {
             timeLeft -= 10;
-            result.innerText = "False!"
+            result.innerText = "False!";
             result.style.color = "red";
-        }
+        };
      });
 
      answer2.addEventListener("click", function(){
@@ -128,11 +128,11 @@ function iterate(id) {
             iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else {
+        } else if (answer2.value == "false") {
             timeLeft -= 10;
-            result.innerText = "False!"
+            result.innerText = "False!";
             result.style.color = "red";
-        }
+        };
      });
 
      answer3.addEventListener("click", function(){
@@ -141,24 +141,24 @@ function iterate(id) {
             iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else {
+        } else if (answer3.value == "false") {
             timeLeft -= 10;
-            result.innerText = "False!"
+            result.innerText = "False!";
             result.style.color = "red";
-        }
+        };
      });
 
      answer4.addEventListener("click", function(){
-        if (answer4.value =="true") {
+        if (answer4.value == "true") {
             id++;
             iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else {
+        } else if (answer4.value == "false") {
             timeLeft -= 10;
-            result.innerText = "False!"
+            result.innerText = "False!";
             result.style.color = "red";
-        }
+        };
      });
     
 };
