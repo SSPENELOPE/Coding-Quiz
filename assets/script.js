@@ -173,10 +173,6 @@ function iterate(id) {
     answer3.value = Questions[id].a[2].isCorrect;
     answer4.value = Questions[id].a[3].isCorrect;
 
-    if (id === 10) {
-        quiz.setAttribute("style", "display:none;");
-    }
-
 };
 
 
