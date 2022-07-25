@@ -146,7 +146,10 @@ function countdown() {
         timer.textContent = timeLeft;
         if (timeLeft === 0) {
             clearInterval(timeInterval);
-            timeLeft.textContent = "0";
+            timer.textContent = "0";
+        } else if (id === 10) {
+            clearInterval(timeInterval);
+            timer.textContent = timeLeft;
         }
     }, 1000);
 };
@@ -185,7 +188,8 @@ startBtn.addEventListener("click", function () {
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    iterate(id)
+    iterate(id);
+   
 });
 
 
