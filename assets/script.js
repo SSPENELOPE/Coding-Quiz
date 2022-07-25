@@ -111,8 +111,6 @@ var Questions = [{
     id: 10
 }
 
-
-
     //TODO: add an empty id to stop the clock when all questions have been answered
 
 ];
@@ -150,6 +148,7 @@ function countdown() {
         } else if (id === 10) {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
+            quiz.style.display = "none"
         }
     }, 1000);
 };
@@ -172,6 +171,10 @@ function iterate(id) {
     answer3.value = Questions[id].a[2].isCorrect;
     answer4.value = Questions[id].a[3].isCorrect;
 
+    if (id === 10) {
+        quiz.setAttribute("style", "display:none;");
+    }
+
 };
 
 
@@ -180,7 +183,7 @@ function iterate(id) {
 
 // Add start button to start the quiz with iterate and countdown function within
 startBtn.addEventListener("click", function () {
-    if (quiz.style.display === "none") {
+    if (quiz.style.display === "none" && id <= 9) {
         quiz.style.display = "flex";
 
     } else {
@@ -196,7 +199,7 @@ startBtn.addEventListener("click", function () {
 // Event Listener for answer buttons
 answers.forEach(answer => {
     answer.addEventListener("click", function () {
-        if (answer.value == "true" && id <= 9) {
+        if (answer.value == "true" && id <= 10) {
             id++;
             iterate(id);
             result.innerText = "True!";
