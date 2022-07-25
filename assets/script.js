@@ -136,7 +136,7 @@ startBtn.addEventListener("click", function () {
 
 // Event Listener for answer buttons
 answers.forEach(answer => {
-    answer.addEventListener("click", function(id) {
+    answer.addEventListener("click", function() {
         start = false;
         if (answer.value == "true" && id <= 4) {
             id++;
@@ -147,6 +147,8 @@ answers.forEach(answer => {
             timeLeft -= 10;
             result.innerText = "False!";
             result.style.color = "red";
+            id++;
+            iterate(id);
         };
     });
 });
