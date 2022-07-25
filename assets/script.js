@@ -71,6 +71,7 @@ var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
 var answer4 = document.getElementById("ans4");
+var id = 0;
 
 
 
@@ -110,10 +111,9 @@ function iterate(id) {    // Add question iteration so we can rotate through que
 
 };
 
-// Add start button with a value of "true" so we can ensure it does not repeat later
-if (start) {
-    iterate("0")
-}
+// Add start button with a value of "true" so we can ensure it does not repeat laterg
+iterate(id);
+
 
 
 
@@ -130,7 +130,7 @@ startBtn.addEventListener("click", function () {
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    iterate("0")
+    iterate("id")
 });
 
 
