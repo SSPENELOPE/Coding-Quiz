@@ -66,7 +66,7 @@ var result = document.getElementById("result");
 var answerBtn = document.querySelector(".answer");
 var timeLeft = 120;
 
-// Get the answers from HTML
+var answers = document.querySelectorAll("answer");
 var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
@@ -109,10 +109,13 @@ function iterate(id) {
     answer1.value = Questions[id].a[0].isCorrect;
     answer2.value = Questions[id].a[1].isCorrect;
     answer3.value = Questions[id].a[2].isCorrect;
-    answer4.value = Questions[id].a[3].isCorrect
+    answer4.value = Questions[id].a[3].isCorrect;
 
 };
 
+if (start) {
+    iterate("0")
+};
 
 
 // Add start button to start the quiz with iterate function within
@@ -130,7 +133,8 @@ startBtn.addEventListener("click", function () {
 
 
 answer1.addEventListener("click", function (id) {
-    if (answer1.value == "true") {
+    start = false;
+    if (answer1.value == "true" && id <= 4) {
         id++;
         iterate(id);
         result.innerText = "True!";
@@ -143,7 +147,8 @@ answer1.addEventListener("click", function (id) {
 });
 
 answer2.addEventListener("click", function (id) {
-    if (answer2.value == "true") {
+    if (answer2.value == "true" && id <= 4) {
+        start = false;
         id++;
         iterate(id);
         result.innerText = "True!";
@@ -156,7 +161,8 @@ answer2.addEventListener("click", function (id) {
 });
 
 answer3.addEventListener("click", function (id) {
-    if (answer3.value == "true") {
+    start = false;
+    if (answer3.value == "true" && id <= 4) {
         id++;
         iterate(id);
         result.innerText = "True!";
@@ -169,7 +175,8 @@ answer3.addEventListener("click", function (id) {
 });
 
 answer4.addEventListener("click", function (id) {
-    if (answer4.value == "true") {
+    start = false;
+    if (answer4.value == "true" && id <= 4) {
         id++;
         iterate(id);
         result.innerText = "True!";
