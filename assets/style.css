@@ -18,10 +18,12 @@ body {
 /* Header */
 header {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--secondary);
-    height: 10vh;
+    height: 12vh;
     width: 100vw;
 }
 
@@ -33,11 +35,12 @@ header {
 }
 
 .time {
-    margin: 20px;
+    margin: 5px;
     margin-right: 2em;
-    padding: 10px;
     font-size: 30px;
+    align-items: center;
     background-color: var(--primary);
+    border: 3px dashed #fff;
 }
 
 
@@ -122,7 +125,7 @@ header {
 }
 
 .answer:hover {
-    box-shadow: 1px 2px 2px 5px var(--secondary);
+    box-shadow: 1px 2px 2px 5px green;
 }
 
 #result {
@@ -154,4 +157,22 @@ header {
 #score-text {
     font-size: 40px;
     font-weight: bold;
+}
+
+
+@media screen and (max-width: 980px) {
+    .time,
+    .highscore {
+        font-size: 13px;
+    }
+
+    .answer {
+        font-size: 15px;
+        margin: 15px;
+    }
+
+    #score-text,
+    #question {
+        font-size: 20px;
+    }
 }
