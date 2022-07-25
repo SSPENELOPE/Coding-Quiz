@@ -132,7 +132,26 @@ startBtn.addEventListener("click", function () {
 });
 
 
-answer1.addEventListener("click", function (id) {
+// Event Listener for answer buttons
+answers.forEach(answer => {
+    answer.addEventListener("click", function(id) {
+        start = false;
+        if (answer.value == "true" && id <= 4) {
+            id++;
+            iterate(id);
+            result.innerText = "True!";
+            result.style.color = "green";
+        } else if (answer4.value == "false") {
+            timeLeft -= 10;
+            result.innerText = "False!";
+            result.style.color = "red";
+        };
+    });
+});
+
+
+
+/*answer1.addEventListener("click", function (id) {
     start = false;
     if (answer1.value == "true" && id <= 4) {
         id++;
@@ -186,9 +205,7 @@ answer4.addEventListener("click", function (id) {
         result.innerText = "False!";
         result.style.color = "red";
     };
-});
-
-
+});*/
 
 
 
