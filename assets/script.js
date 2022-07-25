@@ -66,7 +66,7 @@ var result = document.getElementById("result");
 var answerBtn = document.querySelector(".answer");
 var timeLeft = 120;
 
-var answers = document.querySelectorAll("answer");
+var answers = document.querySelectorAll(".answer");
 var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
