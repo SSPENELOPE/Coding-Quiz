@@ -98,21 +98,19 @@ var Questions = [{
 
 {
     id: 9,
-    q: "Which of these is the correct way to create an element in JavaScript?",
-    a: [{ text: "document.createTag", isCorrect: false },
-    { text: "document.createDiv", isCorrect: false },
-    { text: "document.elementCreate", isCorrect: false },
-    { text: "document.createElement", isCorrect: true }
+    q: "What is the unit of meaurment when setting time intervals for a timer in JavaScript?",
+    a: [{ text: "seconds", isCorrect: false },
+    { text: "milliseconds", isCorrect: true },
+    { text: "minutes", isCorrect: false },
+    { text: "hours", isCorrect: false }
     ]
 
 },
 
 {
-    id: 10
+    id: 10,
+    q: "END OF QUIZ"
 }
-
-    //TODO: add an empty id to stop the clock when all questions have been answered
-
 ];
 
 
