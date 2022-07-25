@@ -50,7 +50,68 @@ var Questions = [{
     { text: ".push()", isCorrect: false }
     ]
 
+},
+
+{
+    id: 5,
+    q: "What is the correct operator symbol to use a \"or\" comparison?",
+    a: [{ text: "&&", isCorrect: false },
+    { text: "||", isCorrect: true },
+    { text: "++", isCorrect: false },
+    { text: "--", isCorrect: false }
+    ]
+
+},
+
+{
+    id: 6,
+    q: "What is the comparison operator used to tell if something is equal in \"type\" and \"value\"",
+    a: [{ text: "=", isCorrect: false },
+    { text: "==", isCorrect: false },
+    { text: "===", isCorrect: true },
+    { text: "====", isCorrect: false }
+    ]
+
+},
+
+{
+    id: 7,
+    q: "Which of these is the correct way to create an element in JavaScript?",
+    a: [{ text: "document.createTag", isCorrect: false },
+    { text: "document.createDiv", isCorrect: false },
+    { text: "document.elementCreate", isCorrect: false },
+    { text: "document.createElement", isCorrect: true }
+    ]
+
+},
+
+{
+    id: 8,
+    q: "Which of these is the correct way to declare a boolean in JavaScript?",
+    a: [{ text: "var myVar = true;", isCorrect: true },
+    { text: "var myVar = 9;", isCorrect: false },
+    { text: "var myVar = \"nine\"", isCorrect: false },
+    { text: "var myVar = [\"1\", \"2\"]", isCorrect: false }
+    ]
+
+},
+
+{
+    id: 9,
+    q: "Which of these is the correct way to create an element in JavaScript?",
+    a: [{ text: "document.createTag", isCorrect: false },
+    { text: "document.createDiv", isCorrect: false },
+    { text: "document.elementCreate", isCorrect: false },
+    { text: "document.createElement", isCorrect: true }
+    ]
+
+},
+
+{
+    id: 10
 }
+
+
 
     //TODO: add an empty id to stop the clock when all questions have been answered
 
@@ -84,6 +145,7 @@ function countdown() {
         timer.textContent = timeLeft;
         if (timeLeft === 0) {
             clearInterval(timeInterval);
+            timeLeft.textContent = "0";
         }
     }, 1000);
 };
@@ -119,7 +181,6 @@ iterate(id);
 
 // Event Listners
 
-
 // Add start button to start the quiz with iterate function within
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none") {
@@ -136,9 +197,8 @@ startBtn.addEventListener("click", function () {
 
 // Event Listener for answer buttons
 answers.forEach(answer => {
-    answer.addEventListener("click", function() {
-        start = false;
-        if (answer.value == "true" && id <= 4) {
+    answer.addEventListener("click", function () {
+        if (answer.value == "true" && id <= 9) {
             id++;
             iterate(id);
             result.innerText = "True!";
@@ -150,6 +210,7 @@ answers.forEach(answer => {
             id++;
             iterate(id);
         };
+
     });
 });
 
