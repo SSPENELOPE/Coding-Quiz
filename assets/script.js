@@ -3,9 +3,9 @@ var Questions = [{
     id: 0,
     q: "What do we use to change the style of an elment in JavaScript?",
     a: [{ text: ".setAttribut()", isCorrect: true },
-        { text: ".splice()", isCorrect: false },
-        { text: ".querySelector", isCorrect: false },
-        { text: ".elementStyle", isCorrect: false }
+    { text: ".splice()", isCorrect: false },
+    { text: ".querySelector", isCorrect: false },
+    { text: ".elementStyle", isCorrect: false }
     ]
 
 },
@@ -13,9 +13,9 @@ var Questions = [{
     id: 1,
     q: "How do you declare a string in JavaScript?",
     a: [{ text: "var myVar = []", isCorrect: false, },
-        { text: "var myVar = {}", isCorrect: false },
-        { text: "var myVar = \"\"", isCorrect: true },
-        { text: "var myVar = ()", isCorrect: false }
+    { text: "var myVar = {}", isCorrect: false },
+    { text: "var myVar = \"\"", isCorrect: true },
+    { text: "var myVar = ()", isCorrect: false }
     ]
 
 },
@@ -23,9 +23,9 @@ var Questions = [{
     id: 2,
     q: "How do we tell a number to \"increment\" in JavaScript?",
     a: [{ text: "i--", isCorrect: false },
-        { text: "i-=", isCorrect: false },
-        { text: "i+=", isCorrect: false },
-        { text: "i++", isCorrect: true }
+    { text: "i-=", isCorrect: false },
+    { text: "i+=", isCorrect: false },
+    { text: "i++", isCorrect: true }
     ]
 
 },
@@ -34,9 +34,9 @@ var Questions = [{
     id: 3,
     q: "A random question",
     a: [{ text: "i--", isCorrect: false },
-        { text: "i-=", isCorrect: true },
-        { text: "i+=", isCorrect: false },
-        { text: "i++", isCorrect: false }
+    { text: "i-=", isCorrect: true },
+    { text: "i+=", isCorrect: false },
+    { text: "i++", isCorrect: false }
     ]
 
 },
@@ -45,9 +45,9 @@ var Questions = [{
     id: 4,
     q: "How do we tell a number to \"increment\" in JavaScript?",
     a: [{ text: "i--", isCorrect: false },
-        { text: "i-=", isCorrect: false },
-        { text: "i+=", isCorrect: true },
-        { text: "i++", isCorrect: false }
+    { text: "i-=", isCorrect: false },
+    { text: "i+=", isCorrect: true },
+    { text: "i++", isCorrect: false }
     ]
 
 }
@@ -66,17 +66,25 @@ var result = document.getElementById("result");
 var answerBtn = document.querySelector(".answer");
 var timeLeft = 120;
 
+// Get the answers from HTML
+var answer1 = document.getElementById("ans1");
+var answer2 = document.getElementById("ans2");
+var answer3 = document.getElementById("ans3");
+var answer4 = document.getElementById("ans4");
+
+
+
 
 
 // Functions
 
-function countdown(){
+function countdown() {
     var timeInterval = setInterval(function () {
-    timeLeft --;
-    timer.textContent = timeLeft;
-    if (timeLeft === 0){
-        clearInterval(timeInterval);
-    }
+        timeLeft--;
+        timer.textContent = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(timeInterval);
+        }
     }, 1000);
 };
 
@@ -87,14 +95,9 @@ function countdown(){
 function iterate(id) {
     // Get the question from HTML
     const question = document.getElementById("question");
+
     // Add the text we want to display from our Questions array
     question.innerText = Questions[id].q;
-
-   // Get the answers from HTML
-    var answer1 = document.getElementById("ans1");
-    var answer2 = document.getElementById("ans2");
-    var answer3 = document.getElementById("ans3");
-    var answer4 = document.getElementById("ans4");
 
     // Add the text we want to display from our Questions array
     answer1.innerText = Questions[id].a[0].text;
@@ -106,70 +109,17 @@ function iterate(id) {
     answer1.value = Questions[id].a[0].isCorrect;
     answer2.value = Questions[id].a[1].isCorrect;
     answer3.value = Questions[id].a[2].isCorrect;
-    answer4.value = Questions[id].a[3].isCorrect;
+    answer4.value = Questions[id].a[3].isCorrect
 
-    //Event Listeners for answer buttons
-    answer1.addEventListener("click", function(){
-        if  (answer1.value == "true") {
-            id++;
-            iterate(id);
-            result.innerText = "True!";
-            result.style.color = "green";
-        } else if (answer1.value == "false") {
-            timeLeft -= 10;
-            result.innerText = "False!";
-            result.style.color = "red";
-        };
-     });
-
-     answer2.addEventListener("click", function(){
-        if (answer2.value == "true") {
-            id++;
-            iterate(id);
-            result.innerText = "True!";
-            result.style.color = "green";
-        } else if (answer2.value == "false") {
-            timeLeft -= 10;
-            result.innerText = "False!";
-            result.style.color = "red";
-        };
-     });
-
-     answer3.addEventListener("click", function(){
-        if (answer3.value == "true") {
-            id++;
-            iterate(id);
-            result.innerText = "True!";
-            result.style.color = "green";
-        } else if (answer3.value == "false") {
-            timeLeft -= 10;
-            result.innerText = "False!";
-            result.style.color = "red";
-        };
-     });
-
-     answer4.addEventListener("click", function(){
-        if (answer4.value == "true") {
-            id++;
-            iterate(id);
-            result.innerText = "True!";
-            result.style.color = "green";
-        } else if (answer4.value == "false") {
-            timeLeft -= 10;
-            result.innerText = "False!";
-            result.style.color = "red";
-        };
-     });
-    
 };
 
-    
+
 
 // Add start button to start the quiz with iterate function within
-startBtn.addEventListener("click", function (){
+startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none") {
         quiz.style.display = "flex";
-        
+
     } else {
         quiz.style.display = "none";
     }
@@ -179,10 +129,60 @@ startBtn.addEventListener("click", function (){
 });
 
 
+answer1.addEventListener("click", function (id) {
+    if (answer1.value == "true") {
+        id++;
+        iterate(id);
+        result.innerText = "True!";
+        result.style.color = "green";
+    } else if (answer1.value == "false") {
+        timeLeft -= 10;
+        result.innerText = "False!";
+        result.style.color = "red";
+    };
+});
+
+answer2.addEventListener("click", function (id) {
+    if (answer2.value == "true") {
+        id++;
+        iterate(id);
+        result.innerText = "True!";
+        result.style.color = "green";
+    } else if (answer2.value == "false") {
+        timeLeft -= 10;
+        result.innerText = "False!";
+        result.style.color = "red";
+    };
+});
+
+answer3.addEventListener("click", function (id) {
+    if (answer3.value == "true") {
+        id++;
+        iterate(id);
+        result.innerText = "True!";
+        result.style.color = "green";
+    } else if (answer3.value == "false") {
+        timeLeft -= 10;
+        result.innerText = "False!";
+        result.style.color = "red";
+    };
+});
+
+answer4.addEventListener("click", function (id) {
+    if (answer4.value == "true") {
+        id++;
+        iterate(id);
+        result.innerText = "True!";
+        result.style.color = "green";
+    } else if (answer4.value == "false") {
+        timeLeft -= 10;
+        result.innerText = "False!";
+        result.style.color = "red";
+    };
+});
 
 
 
 
- 
 
 
