@@ -13,7 +13,7 @@
     <!--Header-->
     <header>
         <div id="highscore">
-            <button class="scores">View high scores</button>
+            <button class="highscore">View high scores</button>
         </div>
         <div class="time">
             Time Left: <span id="timer"></span>
@@ -26,25 +26,27 @@
         <button class="start" id="startBtn">Start</button>
     </div>
 
-    <section class="quiz-wrapper"  style="display:none;" id="quiz">
+    <section class="quiz-wrapper" style="display:none;" id="quiz">
         <!--Question Goes Here-->
         <div class="q-container" id="question">
             question
         </div>
         <!--Answer Goes Here-->
         <div class="a-container">
-           <div class="buttons"> 
+            <div class="buttons">
                 <button class="answer" id="ans1">answer1</button>
                 <button class="answer" id="ans2">answer2</button>
                 <button class="answer" id="ans3">answer3</button>
                 <button class="answer" id="ans4">answer4</button>
-           </div>
-                <div>
-                    <span id="result"></span>
-                </div>
+            </div>
+            <div>
+                <span id="result"></span>
+            </div>
         </div>
     </section>
 
+
+    <!--Ending score after quiz is over area-->
     <section class="score-wrapper" style="display:none;" id="score">
         <div class="score-container">
             <div id="score-text"></div>

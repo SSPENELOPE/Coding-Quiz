@@ -236,61 +236,7 @@ answers.forEach(answer => {
 
 
 
-/*answer1.addEventListener("click", function (id) {
-    start = false;
-    if (answer1.value == "true" && id <= 4) {
-        id++;
-        iterate(id);
-        result.innerText = "True!";
-        result.style.color = "green";
-    } else if (answer1.value == "false") {
-        timeLeft -= 10;
-        result.innerText = "False!";
-        result.style.color = "red";
-    };
-});
 
-answer2.addEventListener("click", function (id) {
-    if (answer2.value == "true" && id <= 4) {
-        start = false;
-        id++;
-        iterate(id);
-        result.innerText = "True!";
-        result.style.color = "green";
-    } else if (answer2.value == "false") {
-        timeLeft -= 10;
-        result.innerText = "False!";
-        result.style.color = "red";
-    };
-});
-
-answer3.addEventListener("click", function (id) {
-    start = false;
-    if (answer3.value == "true" && id <= 4) {
-        id++;
-        iterate(id);
-        result.innerText = "True!";
-        result.style.color = "green";
-    } else if (answer3.value == "false") {
-        timeLeft -= 10;
-        result.innerText = "False!";
-        result.style.color = "red";
-    };
-});
-
-answer4.addEventListener("click", function (id) {
-    start = false;
-    if (answer4.value == "true" && id <= 4) {
-        id++;
-        iterate(id);
-        result.innerText = "True!";
-        result.style.color = "green";
-    } else if (answer4.value == "false") {
-        timeLeft -= 10;
-        result.innerText = "False!";
-        result.style.color = "red";
-    };
-});*/
 
 
 
