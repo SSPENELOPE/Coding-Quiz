@@ -32,22 +32,22 @@ var Questions = [{
 
 {
     id: 3,
-    q: "A random question",
-    a: [{ text: "i--", isCorrect: false },
-    { text: "i-=", isCorrect: true },
-    { text: "i+=", isCorrect: false },
-    { text: "i++", isCorrect: false }
+    q: "How do you delare function in JavaScript?",
+    a: [{ text: "function\"\"", isCorrect: false },
+    { text: "function()", isCorrect: true },
+    { text: "function{}", isCorrect: false },
+    { text: "function[]", isCorrect: false }
     ]
 
 },
 
 {
     id: 4,
-    q: "How do we tell a number to \"increment\" in JavaScript?",
-    a: [{ text: "i--", isCorrect: false },
-    { text: "i-=", isCorrect: false },
-    { text: "i+=", isCorrect: true },
-    { text: "i++", isCorrect: false }
+    q: "What is the method for removing the last item from an array?",
+    a: [{ text: ".unshift()", isCorrect: false },
+    { text: ".slice()", isCorrect: false },
+    { text: ".pop()", isCorrect: true },
+    { text: ".push()", isCorrect: false }
     ]
 
 }
