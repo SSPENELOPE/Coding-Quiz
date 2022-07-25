@@ -165,7 +165,16 @@ header {
     font-weight: bold;
 }
 
+.try-again {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
 
+
+
+
+/* Media Queries */
 @media screen and (max-width: 980px) {
     .time,
     .highscore {
