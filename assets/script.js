@@ -131,7 +131,8 @@ var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
 var answer4 = document.getElementById("ans4");
 var question = document.getElementById("question");
-var score = document.getElementById("score")
+var score = document.getElementById("score");
+var scoreText = document.getElementById("score-text");
 var id = 0;
 
 
