@@ -132,6 +132,7 @@ var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
 var answer4 = document.getElementById("ans4");
+var question = document.getElementById("question");
 var id = 0;
 
 
@@ -151,10 +152,7 @@ function countdown() {
 };
 
 
-function iterate(id) {    // Add question iteration so we can rotate through questions
-
-    // Get the question from HTML
-    const question = document.getElementById("question");
+function iterate(id) {    
 
     // Add the text we want to display from our Questions array
     question.innerText = Questions[id].q;
@@ -173,15 +171,11 @@ function iterate(id) {    // Add question iteration so we can rotate through que
 
 };
 
-// Add start button with a value of "true" so we can ensure it does not repeat laterg
-iterate(id);
-
-
 
 
 // Event Listners
 
-// Add start button to start the quiz with iterate function within
+// Add start button to start the quiz with iterate and countdown function within
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none") {
         quiz.style.display = "flex";
@@ -191,7 +185,7 @@ startBtn.addEventListener("click", function () {
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    iterate("id")
+    iterate(id)
 });
 
 
