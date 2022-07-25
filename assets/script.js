@@ -77,7 +77,6 @@ var answer4 = document.getElementById("ans4");
 
 
 // Functions
-
 function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
@@ -89,10 +88,8 @@ function countdown() {
 };
 
 
+function iterate(id) {    // Add question iteration so we can rotate through questions
 
-
-// Add question iteration so we can rotate through questions
-function iterate(id) {
     // Get the question from HTML
     const question = document.getElementById("question");
 
@@ -113,9 +110,14 @@ function iterate(id) {
 
 };
 
+// Add start button with a value of "true" so we can ensure it does not repeat later
 if (start) {
     iterate("0")
-};
+}
+
+
+
+// Event Listners
 
 
 // Add start button to start the quiz with iterate function within
@@ -141,13 +143,28 @@ answers.forEach(answer => {
             iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else if (answer4.value == "false") {
+        } else if (answer.value == "false") {
             timeLeft -= 10;
             result.innerText = "False!";
             result.style.color = "red";
         };
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
