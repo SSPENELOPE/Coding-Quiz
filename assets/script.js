@@ -147,10 +147,12 @@ function countdown() {
         if (timeLeft === 0) {
             clearInterval(timeInterval);
             timer.textContent = "0";
-        } else if (id === 10) {
+        } else if (id === 10 && score.style.display === "none" ) {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
+            score.style.display = "flex";
+            scoreText.innerText = "Congratulations your score is : " + timeLeft;
         }
     }, 1000);
 };
