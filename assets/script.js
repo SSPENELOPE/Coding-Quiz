@@ -1,103 +1,121 @@
-// Questions for the quiz using an Array of Objects
-var questions = [
-    {
-        question: "What do we use to change the style of an elment in JavaScript?",
-        answer: [{ text: ".setAttribut()", isCorrect: true },
-        { text: ".splice()", isCorrect: false },
-        { text: ".querySelector", isCorrect: false },
-        { text: ".elementStyle", isCorrect: false }
-        ]
+var questions = [{
+    id: 0,
+    question: "What do we use to change the style of an elment in JavaScript?",
+    answer: [{ text: ".setAttribut()", isCorrect: true },
+    { text: ".splice()", isCorrect: false },
+    { text: ".querySelector", isCorrect: false },
+    { text: ".elementStyle", isCorrect: false }
+    ]
 
-    },
-    {
-        question: "How do you declare a string in JavaScript?",
-        answer: [{ text: "var myVar = []", isCorrect: false, },
-        { text: "var myVar = {}", isCorrect: false },
-        { text: "var myVar = \"\"", isCorrect: true },
-        { text: "var myVar = ()", isCorrect: false }
-        ]
+},
+{
+    id: 1,
+    question: "How do you declare a string in JavaScript?",
+    answer: [{ text: "var myVar = []", isCorrect: false, },
+    { text: "var myVar = {}", isCorrect: false },
+    { text: "var myVar = \"\"", isCorrect: true },
+    { text: "var myVar = ()", isCorrect: false }
+    ]
 
-    },
-    {
-        question: "How do we tell a number to \"increment\" in JavaScript?",
-        answer: [{ text: "i--", isCorrect: false },
-        { text: "i-=", isCorrect: false },
-        { text: "i+=", isCorrect: false },
-        { text: "i++", isCorrect: true }
-        ]
+},
+{
+    id: 2,
+    question: "How do we tell a number to \"increment\" in JavaScript?",
+    answer: [{ text: "i--", isCorrect: false },
+    { text: "i-=", isCorrect: false },
+    { text: "i+=", isCorrect: false },
+    { text: "i++", isCorrect: true }
+    ]
 
-    },
-    {
-        question: "How do you delare function in JavaScript?",
-        answer: [{ text: "function\"\"", isCorrect: false },
-        { text: "function()", isCorrect: true },
-        { text: "function{}", isCorrect: false },
-        { text: "function[]", isCorrect: false }
-        ]
+},
 
-    },
+{
+    id: 3,
+    question: "How do you delare function in JavaScript?",
+    answer: [{ text: "function\"\"", isCorrect: false },
+    { text: "function()", isCorrect: true },
+    { text: "function{}", isCorrect: false },
+    { text: "function[]", isCorrect: false }
+    ]
 
-    {
-        question: "What is the method for removing the last item from an array?",
-        answer: [{ text: ".unshift()", isCorrect: false },
-        { text: ".slice()", isCorrect: false },
-        { text: ".pop()", isCorrect: true },
-        { text: ".push()", isCorrect: false }
-        ]
+},
 
-    },
+{
+    id: 4,
+    question: "What is the method for removing the last item from an array?",
+    answer: [{ text: ".unshift()", isCorrect: false },
+    { text: ".slice()", isCorrect: false },
+    { text: ".pop()", isCorrect: true },
+    { text: ".push()", isCorrect: false }
+    ]
 
-    {
-        question: "What is the correct operator symbol to use a \"or\" comparison?",
-        answer: [{ text: "&&", isCorrect: false },
-        { text: "||", isCorrect: true },
-        { text: "++", isCorrect: false },
-        { text: "--", isCorrect: false }
-        ]
+},
 
-    },
+{
+    id: 5,
+    question: "What is the correct operator symbol to use a \"or\" comparison?",
+    answer: [{ text: "&&", isCorrect: false },
+    { text: "||", isCorrect: true },
+    { text: "++", isCorrect: false },
+    { text: "--", isCorrect: false }
+    ]
 
-    {
-        question: "What is the comparison operator used to tell if something is equal in \"type\" and \"value\"",
-        answer: [{ text: "=", isCorrect: false },
-        { text: "==", isCorrect: false },
-        { text: "===", isCorrect: true },
-        { text: "====", isCorrect: false }
-        ]
+},
 
-    },
+{
+    id: 6,
+    question: "What is the comparison operator used to tell if something is equal in \"type\" and \"value\"",
+    answer: [{ text: "=", isCorrect: false },
+    { text: "==", isCorrect: false },
+    { text: "===", isCorrect: true },
+    { text: "====", isCorrect: false }
+    ]
 
-    {
-        question: "Which of these is the correct way to create an element in JavaScript?",
-        answer: [{ text: "document.createTag", isCorrect: false },
-        { text: "document.createDiv", isCorrect: false },
-        { text: "document.elementCreate", isCorrect: false },
-        { text: "document.createElement", isCorrect: true }
-        ]
+},
 
-    },
+{
+    id: 7,
+    question: "Which of these is the correct way to create an element in JavaScript?",
+    answer: [{ text: "document.createTag", isCorrect: false },
+    { text: "document.createDiv", isCorrect: false },
+    { text: "document.elementCreate", isCorrect: false },
+    { text: "document.createElement", isCorrect: true }
+    ]
 
-    {
-        question: "Which of these is the correct way to declare a boolean in JavaScript?",
-        answer: [{ text: "var myVar = true;", isCorrect: true },
-        { text: "var myVar = 9;", isCorrect: false },
-        { text: "var myVar = \"nine\"", isCorrect: false },
-        { text: "var myVar = [\"1\", \"2\"]", isCorrect: false }
-        ]
+},
 
-    },
+{
+    id: 8,
+    question: "Which of these is the correct way to declare a boolean in JavaScript?",
+    answer: [{ text: "var myVar = true;", isCorrect: true },
+    { text: "var myVar = 9;", isCorrect: false },
+    { text: "var myVar = \"nine\"", isCorrect: false },
+    { text: "var myVar = [\"1\", \"2\"]", isCorrect: false }
+    ]
 
-    {
-        question: "What is the unit of meaurment when setting time intervals for a timer in JavaScript?",
-        answers: [{ text: "seconds", isCorrect: false },
-        { text: "milliseconds", isCorrect: true },
-        { text: "minutes", isCorrect: false },
-        { text: "hours", isCorrect: false }
-        ]
-    },
+},
+
+{
+    id: 9,
+    question: "What is the unit of meaurment when setting time intervals for a timer in JavaScript?",
+    answer: [{ text: "seconds", isCorrect: false },
+    { text: "milliseconds", isCorrect: true },
+    { text: "minutes", isCorrect: false },
+    { text: "hours", isCorrect: false }
+    ]
+
+},
+
+{
+    id: 10,
+    question: "END OF QUIZ",
+    answer: [{ text: "Thank You" },
+    { text: "For Taking" },
+    { text: "My" },
+    { text: "Coding Quiz" }
+]
+}
 ];
-
-
 
 
 // Variables
@@ -118,6 +136,9 @@ var question = document.getElementById("question");
 var score = document.getElementById("score");
 var scoreText = document.getElementById("score-text");
 var tryAgain = document.querySelector(".try-again");
+var id = 0;
+
+
 
 
 
@@ -126,14 +147,14 @@ function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
         timer.textContent = timeLeft;
-        if (timeLeft === 0) {
+        if (timeLeft <= 0) {
             clearInterval(timeInterval);
             timer.textContent = "0";
             quiz.style.display = "none";
             score.style.display = "flex";
             scoreText.innerText = "Sorry you ran out of time, Better luck next time!";
-        }
-        if (questions.length === 0) {
+
+        } else if (id === 10 && score.style.display === "none" ) {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
@@ -145,129 +166,32 @@ function countdown() {
 };
 
 
-// Function to obtain a object randomly from questions array
-function getRandomQuestion(questions) {
-       return randomIndex = questions[Math.floor(Math.random() * questions.length)];
-};
-   
-
-// Iterate Function to cylce the questions at a randomIndex from getRandomNumber function
-function iterate(randomIndex) {
-    console.log(questions);
-    questions.pop(randomIndex);
+function iterate(id) {    
 
     // Add the text we want to display from our Questions array
-    question.innerText = questions[0].question;
-    question.innerText = questions[1].question;
-    question.innerText = questions[2].question;
-    question.innerText = questions[3].question;
-    question.innerText = questions[4].question;
-    question.innerText = questions[5].question;
-    question.innerText = questions[6].question;
-    question.innerText = questions[7].question;
-    question.innerText = questions[8].question;
+    question.innerText = questions[id].question;
 
     // Add the text we want to display from our Questions array
-    answer1.innerText = questions[0].answer[0].text;
-    answer2.innerText = questions[0].answer[1].text;
-    answer3.innerText = questions[0].answer[2].text;
-    answer4.innerText = questions[0].answer[3].text;
-
-    answer1.innerText = questions[1].answer[0].text;
-    answer2.innerText = questions[1].answer[1].text;
-    answer3.innerText = questions[1].answer[2].text;
-    answer4.innerText = questions[1].answer[3].text;
-
-    answer1.innerText = questions[2].answer[0].text;
-    answer2.innerText = questions[2].answer[1].text;
-    answer3.innerText = questions[2].answer[2].text;
-    answer4.innerText = questions[2].answer[3].text;
-
-    answer1.innerText = questions[3].answer[0].text;
-    answer2.innerText = questions[3].answer[1].text;
-    answer3.innerText = questions[3].answer[2].text;
-    answer4.innerText = questions[2].answer[3].text;
-
-    answer1.innerText = questions[4].answer[0].text;
-    answer2.innerText = questions[4].answer[1].text;
-    answer3.innerText = questions[4].answer[2].text;
-    answer4.innerText = questions[4].answer[3].text;
-
-    answer1.innerText = questions[5].answer[0].text;
-    answer2.innerText = questions[5].answer[1].text;
-    answer3.innerText = questions[5].answer[2].text;
-    answer4.innerText = questions[5].answer[3].text;
-
-    answer1.innerText = questions[6].answer[0].text;
-    answer2.innerText = questions[6].answer[1].text;
-    answer3.innerText = questions[6].answer[2].text;
-    answer4.innerText = questions[6].answer[3].text;
-
-    answer1.innerText = questions[7].answer[0].text;
-    answer2.innerText = questions[7].answer[1].text;
-    answer3.innerText = questions[7].answer[2].text;
-    answer4.innerText = questions[7].answer[3].text;
-
-    answer1.innerText = questions[8].answer[0].text;
-    answer2.innerText = questions[8].answer[1].text;
-    answer3.innerText = questions[8].answer[2].text;
-    answer4.innerText = questions[8].answer[3].text;
-
+    answer1.innerText = questions[id].answer[0].text;
+    answer2.innerText = questions[id].answer[1].text;
+    answer3.innerText = questions[id].answer[2].text;
+    answer4.innerText = questions[id].answer[3].text;
 
     // Add true or false using isCorrect boolean
-    answer1.value = questions[0].answer[0].isCorrect;
-    answer2.value = questions[0].answer[1].isCorrect;
-    answer3.value = questions[0].answer[2].isCorrect;
-    answer4.value = questions[0].answer[3].isCorrect;
-
-    answer1.value = questions[1].answer[0].isCorrect;
-    answer2.value = questions[1].answer[1].isCorrect;
-    answer3.value = questions[1].answer[2].isCorrect;
-    answer4.value = questions[1].answer[3].isCorrect;
-
-    answer1.value = questions[2].answer[0].isCorrect;
-    answer2.value = questions[2].answer[1].isCorrect;
-    answer3.value = questions[2].answer[2].isCorrect;
-    answer4.value = questions[2].answer[3].isCorrect;
-
-    answer1.value = questions[3].answer[0].isCorrect;
-    answer2.value = questions[3].answer[1].isCorrect;
-    answer3.value = questions[3].answer[2].isCorrect;
-    answer4.value = questions[3].answer[3].isCorrect;
-
-    answer1.value = questions[4].answer[0].isCorrect;
-    answer2.value = questions[4].answer[1].isCorrect;
-    answer3.value = questions[4].answer[2].isCorrect;
-    answer4.value = questions[4].answer[3].isCorrect;
-
-    answer1.value = questions[5].answer[0].isCorrect;
-    answer2.value = questions[5].answer[1].isCorrect;
-    answer3.value = questions[5].answer[2].isCorrect;
-    answer4.value = questions[5].answer[3].isCorrect;
-
-    answer1.value = questions[6].answer[0].isCorrect;
-    answer2.value = questions[6].answer[1].isCorrect;
-    answer3.value = questions[6].answer[2].isCorrect;
-    answer4.value = questions[6].answer[3].isCorrect;
-
-    answer1.value = questions[7].answer[0].isCorrect;
-    answer2.value = questions[7].answer[1].isCorrect;
-    answer3.value = questions[7].answer[2].isCorrect;
-    answer4.value = questions[7].answer[3].isCorrect;
-
-    answer1.value = questions[8].answer[0].isCorrect;
-    answer2.value = questions[8].answer[1].isCorrect;
-    answer3.value = questions[8].answer[2].isCorrect;
-    answer4.value = questions[8].answer[3].isCorrect;
+    answer1.value = questions[id].answer[0].isCorrect;
+    answer2.value = questions[id].answer[1].isCorrect;
+    answer3.value = questions[id].answer[2].isCorrect;
+    answer4.value = questions[id].answer[3].isCorrect;
 
 };
 
 
 
+// Event Listners
 
-// Start button to start the quiz with iterate and countdown function within
+// Add start button to start the quiz with iterate and countdown function within
 startBtn.addEventListener("click", function () {
-    if (quiz.style.display === "none") {
+    if (quiz.style.display === "none" && id <= 9) {
         quiz.style.display = "flex";
 
     } else {
@@ -275,48 +199,38 @@ startBtn.addEventListener("click", function () {
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    iterate();
+    iterate(id);
+   
 });
 
 
-// Answer buttons
+// Event Listener for answer buttons
 answers.forEach(answer => {
     answer.addEventListener("click", function () {
-        if (answer.value == "true" && questions.length > 0) {
-            iterate(getRandomQuestion());
+        if (answer.value == "true" && id <= 10) {
+            id++;
+            iterate(id);
             result.innerText = "True!";
             result.style.color = "green";
-        } else if (answer.value == "false" && questions.length > 0) {
-            iterate(getRandomQuestion());
+        } else if (answer.value == "false") {
             timeLeft -= 10;
             result.innerText = "False!";
             result.style.color = "red";
-        }
+            id++;
+            iterate(id);
+        };
+
     });
 });
 
-
-// Try again button end of quiz
-tryAgain.addEventListener("click", function () {
+tryAgain.addEventListener("click", function() {
     timeLeft = 120;
+    id = 0;
     countdown();
-    iterate(randomIndex);
+    iterate(id);
     quiz.style.display = "flex";
     score.style.display = "none";
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 
