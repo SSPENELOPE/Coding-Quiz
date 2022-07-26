@@ -1,8 +1,8 @@
-// Create an array of objects that hold questions and answers
-var questions = [{
-    id: 0,
-    q: "What do we use to change the style of an elment in JavaScript?",
-    a: [{ text: ".setAttribut()", isCorrect: true },
+// Questions for the quiz using an Array of Objects
+var questions = [
+{
+    question: "What do we use to change the style of an elment in JavaScript?",
+    answer: [{ text: ".setAttribut()", isCorrect: true },
     { text: ".splice()", isCorrect: false },
     { text: ".querySelector", isCorrect: false },
     { text: ".elementStyle", isCorrect: false }
@@ -10,9 +10,8 @@ var questions = [{
 
 },
 {
-    id: 1,
-    q: "How do you declare a string in JavaScript?",
-    a: [{ text: "var myVar = []", isCorrect: false, },
+    question: "How do you declare a string in JavaScript?",
+    answer: [{ text: "var myVar = []", isCorrect: false, },
     { text: "var myVar = {}", isCorrect: false },
     { text: "var myVar = \"\"", isCorrect: true },
     { text: "var myVar = ()", isCorrect: false }
@@ -20,20 +19,17 @@ var questions = [{
 
 },
 {
-    id: 2,
-    q: "How do we tell a number to \"increment\" in JavaScript?",
-    a: [{ text: "i--", isCorrect: false },
+    question: "How do we tell a number to \"increment\" in JavaScript?",
+    answer: [{ text: "i--", isCorrect: false },
     { text: "i-=", isCorrect: false },
     { text: "i+=", isCorrect: false },
     { text: "i++", isCorrect: true }
     ]
 
 },
-
 {
-    id: 3,
-    q: "How do you delare function in JavaScript?",
-    a: [{ text: "function\"\"", isCorrect: false },
+    question: "How do you delare function in JavaScript?",
+    answer: [{ text: "function\"\"", isCorrect: false },
     { text: "function()", isCorrect: true },
     { text: "function{}", isCorrect: false },
     { text: "function[]", isCorrect: false }
@@ -42,9 +38,8 @@ var questions = [{
 },
 
 {
-    id: 4,
-    q: "What is the method for removing the last item from an array?",
-    a: [{ text: ".unshift()", isCorrect: false },
+    question: "What is the method for removing the last item from an array?",
+    answer: [{ text: ".unshift()", isCorrect: false },
     { text: ".slice()", isCorrect: false },
     { text: ".pop()", isCorrect: true },
     { text: ".push()", isCorrect: false }
@@ -53,9 +48,8 @@ var questions = [{
 },
 
 {
-    id: 5,
-    q: "What is the correct operator symbol to use a \"or\" comparison?",
-    a: [{ text: "&&", isCorrect: false },
+    question: "What is the correct operator symbol to use a \"or\" comparison?",
+    answer: [{ text: "&&", isCorrect: false },
     { text: "||", isCorrect: true },
     { text: "++", isCorrect: false },
     { text: "--", isCorrect: false }
@@ -64,9 +58,8 @@ var questions = [{
 },
 
 {
-    id: 6,
-    q: "What is the comparison operator used to tell if something is equal in \"type\" and \"value\"",
-    a: [{ text: "=", isCorrect: false },
+    question: "What is the comparison operator used to tell if something is equal in \"type\" and \"value\"",
+    answer: [{ text: "=", isCorrect: false },
     { text: "==", isCorrect: false },
     { text: "===", isCorrect: true },
     { text: "====", isCorrect: false }
@@ -75,9 +68,8 @@ var questions = [{
 },
 
 {
-    id: 7,
-    q: "Which of these is the correct way to create an element in JavaScript?",
-    a: [{ text: "document.createTag", isCorrect: false },
+    question: "Which of these is the correct way to create an element in JavaScript?",
+    answer: [{ text: "document.createTag", isCorrect: false },
     { text: "document.createDiv", isCorrect: false },
     { text: "document.elementCreate", isCorrect: false },
     { text: "document.createElement", isCorrect: true }
@@ -86,9 +78,8 @@ var questions = [{
 },
 
 {
-    id: 8,
-    q: "Which of these is the correct way to declare a boolean in JavaScript?",
-    a: [{ text: "var myVar = true;", isCorrect: true },
+    question: "Which of these is the correct way to declare a boolean in JavaScript?",
+    answer: [{ text: "var myVar = true;", isCorrect: true },
     { text: "var myVar = 9;", isCorrect: false },
     { text: "var myVar = \"nine\"", isCorrect: false },
     { text: "var myVar = [\"1\", \"2\"]", isCorrect: false }
@@ -97,14 +88,13 @@ var questions = [{
 },
 
 {
-    id: 9,
-    q: "What is the unit of meaurment when setting time intervals for a timer in JavaScript?",
-    a: [{ text: "seconds", isCorrect: false },
+    question: "What is the unit of meaurment when setting time intervals for a timer in JavaScript?",
+    answers: [{ text: "seconds", isCorrect: false },
     { text: "milliseconds", isCorrect: true },
     { text: "minutes", isCorrect: false },
     { text: "hours", isCorrect: false }
     ]
-}
+},
 
 
 ];
@@ -128,12 +118,7 @@ var question = document.getElementById("question");
 var score = document.getElementById("score");
 var scoreText = document.getElementById("score-text");
 var tryAgain = document.querySelector(".try-again");
-var id = 0;
 
-
-/*for (i = 0; i < questions.length; i++) {
- 
-}*/
 
 
 // Functions
@@ -159,40 +144,65 @@ function countdown() {
     }, 1000);
 };
 
+
+// Random question grab function
 function getRandomNumber() {
-    //for (var i = 0; i < questions.length; i++){
-   return randomIndex = questions[Math.floor(Math.random() * questions.length)];
-    //}
+    for (var i = 0; i < questions.length; i++){
+    return randomIndex = questions[Math.floor(Math.random() * questions.length)];
+    }
 };
 
 
+// Iterate Function to cylce the questions at a random index from last function
 function iterate(randomIndex) {
 
-    //getRandomNumber();
     console.log(questions);
     questions.pop(randomIndex);
-    // Add the text we want to display from our Questions array
-    question.innerText = questions[randomIndex].q;
 
     // Add the text we want to display from our Questions array
-    answer1.innerText = questions[randomIndex].a[0].text;
-    answer2.innerText = questions[randomIndex].a[1].text;
-    answer3.innerText = questions[randomIndex].a[2].text;
-    answer4.innerText = questions[randomIndex].a[3].text;
+    question.innerText = questions[0].question;
+    question.innerText = questions[1].question;
+    question.innerText = questions[2].question;
+
+    // Add the text we want to display from our Questions array
+    answer1.innerText = questions[0].answer[0].text;
+    answer2.innerText = questions[0].answer[1].text;
+    answer3.innerText = questions[0].answer[2].text;
+    answer4.innerText = questions[0].answer[3].text;
+
+    answer1.innerText = questions[1].answer[0].text;
+    answer2.innerText = questions[1].answer[1].text;
+    answer3.innerText = questions[1].answer[2].text;
+    answer4.innerText = questions[1].answer[3].text;
+
+    answer1.innerText = questions[2].answer[0].text;
+    answer2.innerText = questions[2].answer[1].text;
+    answer3.innerText = questions[2].answer[2].text;
+    answer4.innerText = questions[2].answer[3].text;
+
 
     // Add true or false using isCorrect boolean
-    answer1.value = questions[randomIndex].a[0].isCorrect;
-    answer2.value = questions[randomIndex].a[1].isCorrect;
-    answer3.value = questions[randomIndex].a[2].isCorrect;
-    answer4.value = questions[randomIndex].a[3].isCorrect;
+    answer1.value = questions[0].answer[0].isCorrect;
+    answer2.value = questions[0].answer[1].isCorrect;
+    answer3.value = questions[0].answer[2].isCorrect;
+    answer4.value = questions[0].answer[3].isCorrect;
+
+    answer1.value = questions[1].answer[0].isCorrect;
+    answer2.value = questions[1].answer[1].isCorrect;
+    answer3.value = questions[1].answer[2].isCorrect;
+    answer4.value = questions[1].answer[3].isCorrect;
+
+    answer1.value = questions[2].answer[0].isCorrect;
+    answer2.value = questions[2].answer[1].isCorrect;
+    answer3.value = questions[2].answer[2].isCorrect;
+    answer4.value = questions[2].answer[3].isCorrect;
 
 };
 
 
 
-// Event Listners
 
-// Add start button to start the quiz with iterate and countdown function within
+// Start button to start the quiz with iterate and countdown function within
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
         quiz.style.display = "flex";
@@ -203,32 +213,29 @@ startBtn.addEventListener("click", function () {
     start.setAttribute("style", "display: none;");
     countdown();
     iterate(getRandomNumber());
-   
 });
 
 
-// Event Listener for answer buttons
+// Answer buttons
 answers.forEach(answer => {
     answer.addEventListener("click", function () {
         if (answer.value == "true" && questions.length > 0) {
-            //id++;
             iterate(getRandomNumber());
             result.innerText = "True!";
             result.style.color = "green";
         } else if (answer.value == "false" && questions.length > 0) {
+            iterate(getRandomNumber());
             timeLeft -= 10;
             result.innerText = "False!";
             result.style.color = "red";
-            //id++;
-            iterate(getRandomNumber());
-        };
-
+        }       
     });
 });
+            
 
+// Try again button end of quiz
 tryAgain.addEventListener("click", function() {
     timeLeft = 120;
-    id = 0;
     countdown();
     iterate(getRandomNumber());
     quiz.style.display = "flex";
