@@ -1,5 +1,5 @@
 // Create an array of objects that hold questions and answers
-var Questions = [{
+var questions = [{
     id: 0,
     q: "What do we use to change the style of an elment in JavaScript?",
     a: [{ text: ".setAttribut()", isCorrect: true },
@@ -104,13 +104,9 @@ var Questions = [{
     { text: "minutes", isCorrect: false },
     { text: "hours", isCorrect: false }
     ]
-
-},
-
-{
-    id: 10,
-    q: "END OF QUIZ"
 }
+
+
 ];
 
 
@@ -135,7 +131,9 @@ var tryAgain = document.querySelector(".try-again");
 var id = 0;
 
 
-
+/*for (i = 0; i < questions.length; i++) {
+ 
+}*/
 
 
 // Functions
@@ -149,8 +147,8 @@ function countdown() {
             quiz.style.display = "none";
             score.style.display = "flex";
             scoreText.innerText = "Sorry you ran out of time, Better luck next time!";
-
-        } else if (id === 10 && score.style.display === "none" ) {
+        }
+        if (questions.length === 0) {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
@@ -161,23 +159,32 @@ function countdown() {
     }, 1000);
 };
 
+function getRandomNumber() {
+    //for (var i = 0; i < questions.length; i++){
+   return randomIndex = questions[Math.floor(Math.random() * questions.length)];
+    //}
+};
 
-function iterate(id) {    
+
+function iterate(randomIndex) {
+
+    //getRandomNumber();
+    console.log(questions);
+    questions.pop(randomIndex);
+    // Add the text we want to display from our Questions array
+    question.innerText = questions[randomIndex].q;
 
     // Add the text we want to display from our Questions array
-    question.innerText = Questions[id].q;
-
-    // Add the text we want to display from our Questions array
-    answer1.innerText = Questions[id].a[0].text;
-    answer2.innerText = Questions[id].a[1].text;
-    answer3.innerText = Questions[id].a[2].text;
-    answer4.innerText = Questions[id].a[3].text;
+    answer1.innerText = questions[randomIndex].a[0].text;
+    answer2.innerText = questions[randomIndex].a[1].text;
+    answer3.innerText = questions[randomIndex].a[2].text;
+    answer4.innerText = questions[randomIndex].a[3].text;
 
     // Add true or false using isCorrect boolean
-    answer1.value = Questions[id].a[0].isCorrect;
-    answer2.value = Questions[id].a[1].isCorrect;
-    answer3.value = Questions[id].a[2].isCorrect;
-    answer4.value = Questions[id].a[3].isCorrect;
+    answer1.value = questions[randomIndex].a[0].isCorrect;
+    answer2.value = questions[randomIndex].a[1].isCorrect;
+    answer3.value = questions[randomIndex].a[2].isCorrect;
+    answer4.value = questions[randomIndex].a[3].isCorrect;
 
 };
 
@@ -195,7 +202,7 @@ startBtn.addEventListener("click", function () {
     }
     start.setAttribute("style", "display: none;");
     countdown();
-    iterate(id);
+    iterate(getRandomNumber());
    
 });
 
@@ -203,17 +210,17 @@ startBtn.addEventListener("click", function () {
 // Event Listener for answer buttons
 answers.forEach(answer => {
     answer.addEventListener("click", function () {
-        if (answer.value == "true" && id <= 10) {
-            id++;
-            iterate(id);
+        if (answer.value == "true" && questions.length > 0) {
+            //id++;
+            iterate(getRandomNumber());
             result.innerText = "True!";
             result.style.color = "green";
-        } else if (answer.value == "false") {
+        } else if (answer.value == "false" && questions.length > 0) {
             timeLeft -= 10;
             result.innerText = "False!";
             result.style.color = "red";
-            id++;
-            iterate(id);
+            //id++;
+            iterate(getRandomNumber());
         };
 
     });
@@ -223,10 +230,10 @@ tryAgain.addEventListener("click", function() {
     timeLeft = 120;
     id = 0;
     countdown();
-    iterate(id);
+    iterate(getRandomNumber());
     quiz.style.display = "flex";
     score.style.display = "none";
-})
+});
 
 
 
