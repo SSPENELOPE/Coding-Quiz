@@ -142,6 +142,7 @@ var userInitials = document.getElementById("intials");
 var scoreBoard = document.querySelector(".score-board");
 var viewHighscoresBtn = document.querySelector(".highscore");
 var form = document.getElementById("form");
+var userScores = [];
 var timeLeft = 120;
 var id = 0;
 
@@ -149,7 +150,7 @@ var id = 0;
 
 
 
-// Functions
+/*                 Functions              */
 function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
@@ -195,7 +196,7 @@ function iterate(id) {
 
 function saveScore() {
     var userScore = {
-        score: userInitials.value.trim() + timeLeft
+        score: userInitials.value.trim() + ":" + " " + timeLeft,
     };
     localStorage.setItem("userScore", JSON.stringify(userScore));
 };
@@ -211,9 +212,8 @@ function viewHighscores() {
 
 
 
-// Event Listners
-
-// Add start button to start the quiz with iterate and countdown function within
+/*           Event Listners           */
+// Start button
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
         quiz.style.display = "flex";
@@ -228,7 +228,7 @@ startBtn.addEventListener("click", function () {
 });
 
 
-// Event Listener for answer buttons
+// Answer buttons
 answers.forEach(answer => {
     answer.addEventListener("click", function () {
         if (answer.value == "true" && id <= 10) {
@@ -246,7 +246,7 @@ answers.forEach(answer => {
 
     });
 });
-
+// Try Agian button
 tryAgain.addEventListener("click", function () {
     timeLeft = 120;
     id = 0;
@@ -257,19 +257,20 @@ tryAgain.addEventListener("click", function () {
 });
 
 
-
+// Submit button
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault;
     saveScore();
 });
 
+// View Highscores button
 viewHighscoresBtn.addEventListener("click", function () {
     viewHighscores();
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
         startBtn.style.display = "none";
     }
-})
+});
 
 
 
