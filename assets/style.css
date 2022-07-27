@@ -192,7 +192,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 20vh;
+    height: 30vh;
     width: 60vw;
     background-color: var(--primary);
     border: 5px solid var(--secondary);
@@ -207,12 +207,12 @@ header {
 }
 
 #intials {
-    width: 20em;
+    width: 20%;
 }
 
 #submit {
     background-color: var(--primary);
-    width: 10em;
+    width: 15%;
     font-weight: 900;
     cursor: grab;
     font-size: 20px;
@@ -245,4 +245,11 @@ header {
     #question {
         font-size: 20px;
     }
+
+    #submit {
+        width: 30%;
+        font-size: 10px;
+    }
+
+   
 }
