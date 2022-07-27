@@ -195,15 +195,15 @@ function iterate(id) {
 
 function saveScore() {
     var userScore = {
-        score = userInitials
-    }
+        score: userInitials.value.trim() + timeLeft
+    };
     localStorage.setItem("userScore", JSON.stringify(userScore));
 };
 
 function viewHighscores() {
     var highScore = JSON.parse(localStorage.getItem("userScore"));
     if (highScore !== null) {
-        document.getElementById("user-score").innerText = highScore.userScore;
+        document.getElementById("user-score").innerHTML = highScore.score;
     } else {
         return;
     }
@@ -258,7 +258,8 @@ tryAgain.addEventListener("click", function () {
 
 
 
-submitBtn.addEventListener("click", function () {
+submitBtn.addEventListener("click", function (event) {
+    event.preventDefault;
     saveScore();
 });
 
