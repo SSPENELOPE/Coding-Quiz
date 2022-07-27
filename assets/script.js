@@ -113,7 +113,7 @@ var questions = [{
     { text: "For Taking" },
     { text: "My" },
     { text: "Coding Quiz" }
-]
+    ]
 }
 ];
 
@@ -124,6 +124,8 @@ var start = document.querySelector(".start-button");
 var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
 var result = document.getElementById("result");
+
+// Answer button variables
 var answerBtn = document.querySelector(".answer");
 var answers = document.querySelectorAll(".answer");
 var answer1 = document.getElementById("ans1");
@@ -137,7 +139,9 @@ var scoreText = document.getElementById("score-text");
 var tryAgain = document.querySelector(".try-again");
 var submitBtn = document.getElementById("submit");
 var userInitials = document.getElementById("intials");
-var scoreBoard = document.querySelector(".score-board")
+var scoreBoard = document.querySelector(".score-board");
+var viewHighscoresBtn = document.querySelector(".highscore");
+var form = document.getElementById("form");
 var timeLeft = 120;
 var id = 0;
 
@@ -156,20 +160,21 @@ function countdown() {
             quiz.style.display = "none";
             score.style.display = "flex";
             scoreText.innerText = "Sorry you ran out of time, Better luck next time!";
-
-        } else if (id === 10 && score.style.display === "none" ) {
+            form.style.display = "none";
+        } else if (id === 10 && score.style.display === "none") {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
             score.style.display = "flex";
             tryAgain.style.display = "none";
+            form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
         }
     }, 1000);
 };
 
 
-function iterate(id) {    
+function iterate(id) {
 
     // Add the text we want to display from our Questions array
     question.innerText = questions[id].question;
@@ -189,7 +194,9 @@ function iterate(id) {
 };
 
 function saveScore() {
-    var userScore = userInitials + timeLeft;
+    var userScore = {
+        score = userInitials
+    }
     localStorage.setItem("userScore", JSON.stringify(userScore));
 };
 
@@ -200,7 +207,7 @@ function viewHighscores() {
     } else {
         return;
     }
-}
+};
 
 
 
@@ -217,7 +224,7 @@ startBtn.addEventListener("click", function () {
     start.setAttribute("style", "display: none;");
     countdown();
     iterate(id);
-   
+
 });
 
 
@@ -240,7 +247,7 @@ answers.forEach(answer => {
     });
 });
 
-tryAgain.addEventListener("click", function() {
+tryAgain.addEventListener("click", function () {
     timeLeft = 120;
     id = 0;
     countdown();
@@ -250,6 +257,18 @@ tryAgain.addEventListener("click", function() {
 });
 
 
+
+submitBtn.addEventListener("click", function () {
+    saveScore();
+});
+
+viewHighscoresBtn.addEventListener("click", function () {
+    viewHighscores();
+    if (scoreBoard.style.display === "none") {
+        scoreBoard.style.display = "flex";
+        startBtn.style.display = "none";
+    }
+})
 
 
 
