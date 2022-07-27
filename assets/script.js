@@ -137,6 +137,7 @@ var scoreText = document.getElementById("score-text");
 var tryAgain = document.querySelector(".try-again");
 var submitBtn = document.getElementById("submit");
 var userInitials = document.getElementById("intials");
+var scoreBoard = document.querySelector(".score-board")
 var timeLeft = 120;
 var id = 0;
 
@@ -193,7 +194,12 @@ function saveScore() {
 };
 
 function viewHighscores() {
-    
+    var highScore = JSON.parse(localStorage.getItem("userScore"));
+    if (highScore !== null) {
+        document.getElementById("user-score").innerText = highScore.userScore;
+    } else {
+        return;
+    }
 }
 
 
