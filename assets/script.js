@@ -196,8 +196,9 @@ function iterate(id) {
 
 function saveScore() {
     var userScore = {
-        score: userInitials.value.trim() + ":" + " " + timeLeft,
+        score: userInitials.value.trim().toUpperCase() + ":" + " " + timeLeft,
     };
+    userScore.push(score);
     localStorage.setItem("userScore", JSON.stringify(userScore));
 };
 
