@@ -25,6 +25,7 @@ header {
     background-color: var(--secondary);
     height: 12vh;
     width: 100vw;
+    border-bottom: 7px solid purple;
 }
 
 .highscore {
@@ -33,6 +34,7 @@ header {
     padding: 5px;
     font-size: 30px;
     background-color: var(--primary);
+    cursor: grab;
 }
 
 .highscore:hover {
@@ -185,6 +187,41 @@ header {
     box-shadow: inset 2px 2px 3px var(--primary);
 }
 
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+    width: 60vw;
+    background-color: var(--primary);
+    border: 5px solid var(--secondary);
+}
+
+#intials,
+#submit {
+    margin: 5px;
+    padding: 10px;
+    border: 3px solid var(--secondary);
+    border-radius: .6em;
+}
+
+#intials {
+    width: 20em;
+}
+
+#submit {
+    background-color: var(--primary);
+    width: 10em;
+    font-weight: 900;
+    cursor: grab;
+    font-size: 20px;
+}
+
+#submit:hover {
+    box-shadow: inset 3px 3px 3px var(--secondary);
+}
+
 
 
 
@@ -193,6 +230,10 @@ header {
     .time,
     .highscore {
         font-size: 13px;
+    }
+
+    #form {
+        font-size: 10px;
     }
 
     .answer {

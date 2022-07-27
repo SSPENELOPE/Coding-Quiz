@@ -230,7 +230,7 @@ tryAgain.addEventListener("click", function() {
     iterate(id);
     quiz.style.display = "flex";
     score.style.display = "none";
-})
+});
 
 
 
