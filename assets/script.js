@@ -153,6 +153,8 @@ var id = 0;
 
 
 /*                 Functions              */
+
+// Function to add the userscores to the scoreboard
 function loadUserScores() {
     scoreList.innerHTML = "";
 
@@ -167,6 +169,7 @@ function loadUserScores() {
     }
 };
 
+// Load scores on page start
 function loadScores() {
     var storedScores = JSON.parse(localStorage.getItem("userScores"));
         if (storedScores !== null) {
@@ -175,11 +178,12 @@ function loadScores() {
     loadUserScores();
 };
 
+// Function to save the users score at quiz end
 function storeScore() {
     localStorage.setItem("userScores", JSON.stringify(userScores));
 };
 
-
+// Function for the timer
 function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
@@ -203,7 +207,7 @@ function countdown() {
     }, 1000);
 };
 
-
+// Function to cycle through the questions
 function iterate(id) {
 
     // Add the text we want to display from our Questions array
@@ -225,6 +229,8 @@ function iterate(id) {
 
 
 /*           Event Listners           */
+
+// Submit button on for input at end of quiz
 form.addEventListener("submit", function(){
     //event.preventDefault();
     
