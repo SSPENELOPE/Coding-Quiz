@@ -154,7 +154,7 @@ var viewHighscoresBtn = document.querySelector(".highscore");
 var answerBtn = document.querySelector(".answer");
 var tryAgain = document.querySelector(".try-again");
 var startBtn = document.getElementById("startBtn");
-
+var returnBtn = document.getElementById("returnBtn");
 
 
 
@@ -304,6 +304,14 @@ viewHighscoresBtn.addEventListener("click", function () {
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
         startBtn.style.display = "none";
+    }
+});
+
+// Return button
+returnBtn.addEventListener("click", function(){
+    if (scoreBoard.style.display === "flex") {
+        scoreBoard.style.display = "none";
+        startBtn.style.display = "flex";
     }
 });
 
