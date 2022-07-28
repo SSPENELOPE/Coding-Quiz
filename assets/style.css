@@ -232,7 +232,16 @@ header {
     font-weight: bold;
 }
 
-#returnBtn {
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+}
+
+#returnBtn,
+#clearBtn {
     margin: 10px;
     padding: 10px;
     background-color: var(--primary);
@@ -240,13 +249,16 @@ header {
     border-radius: .9em;
 }
 
-#returnBtn:hover {
+#returnBtn:hover,
+#clearBtn:hover {
     box-shadow: inset 3px 3px 4px 5px var(--secondary);
 }
 
-#returnBtn:active {
+#returnBtn:active,
+#clearBtn:active {
     padding: 3px;
 }
+
 
 
 /* Media Queries */
