@@ -61,21 +61,25 @@
             <label for="initials" id="intials-label"></label>
         </form>
     </section>
-
+    
     <!--Scoreboard-->
     <section class="score-board" style="display: none;">
         <div class="scoreboard-container">
             <ul id="score-list"></ul>
         </div>
+            
         <div class="button-container">
             <div>
                 <button id="returnBtn">Return</button>
             </div>
             <div>
-                <button id="clearBtn">Clear Scores</button>
+                <button onclick="reloadScoreboard()" id="clearBtn">Clear Scores</button>
             </div>
         </div>
     </section>
+            
+   
+
             
 <script src="./assets/script.js"></script>
 </body>

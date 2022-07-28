@@ -159,8 +159,6 @@ var clearBtn = document.getElementById("clearBtn");
 
 
 
-
-
 /*                 Functions              */
 
 // Function to add the userscores to the scoreboard
@@ -241,6 +239,13 @@ function iterate(id) {
 
 };
 
+function reloadScoreboard() {
+   while (scoreList.hasChildNodes()) {
+    scoreList.removeChild(scoreList.firstChild);
+   };
+   clearScores();
+};
+
 
 /*           Event Listners           */
 
@@ -317,16 +322,8 @@ returnBtn.addEventListener("click", function(){
     if (scoreBoard.style.display === "flex") {
         scoreBoard.style.display = "none";
         startBtn.style.display = "flex";
-    }
+    };
 });
-
-// Clear scores button
-clearBtn.addEventListener("click", function() {
-
-    clearScores();
-    loadUserScores();
-
-})
 
 
 loadScores();
