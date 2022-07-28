@@ -192,6 +192,10 @@ function storeScore() {
     localStorage.setItem("userScores", JSON.stringify(userScores));
 };
 
+function clearScores() {
+    localStorage.clear()
+}
+
 // Function for the timer
 function countdown() {
     var timeInterval = setInterval(function () {
