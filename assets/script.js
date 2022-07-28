@@ -155,6 +155,7 @@ var answerBtn = document.querySelector(".answer");
 var tryAgain = document.querySelector(".try-again");
 var startBtn = document.getElementById("startBtn");
 var returnBtn = document.getElementById("returnBtn");
+var clearBtn = document.getElementById("clearBtn");
 
 
 
@@ -318,6 +319,14 @@ returnBtn.addEventListener("click", function(){
         startBtn.style.display = "flex";
     }
 });
+
+// Clear scores button
+clearBtn.addEventListener("click", function() {
+
+    clearScores();
+    loadUserScores();
+
+})
 
 
 loadScores();
