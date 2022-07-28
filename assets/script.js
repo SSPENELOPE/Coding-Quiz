@@ -183,6 +183,7 @@ function loadScores() {
         if (storedScores !== null) {
             userScores = storedScores;
          };
+         // Add loadUserScores function to add the scores on page start
     loadUserScores();
 };
 
@@ -242,7 +243,7 @@ function iterate(id) {
 form.addEventListener("submit", function(){
     //event.preventDefault();
     
-    var initalsText = userInitials.value.trim().toUpperCase() + timeLeft;
+    var initalsText = userInitials.value.trim().toUpperCase() + ":" + " " + timeLeft;
     if (initalsText === "") {
         return;
     }
