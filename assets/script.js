@@ -118,35 +118,43 @@ var questions = [{
 ];
 
 
-// Variables
+/*        Variables         */
+
+// General variables
 var timer = document.getElementById("timer");
 var start = document.querySelector(".start-button");
-var startBtn = document.getElementById("startBtn");
 var quiz = document.getElementById("quiz");
-var result = document.getElementById("result");
+var timeLeft = 120;
 
-// Answer button variables
-var answerBtn = document.querySelector(".answer");
+
+
+// Question and Answer button variables
+var question = document.getElementById("question");
+var id = 0;
 var answers = document.querySelectorAll(".answer");
 var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
 var answer3 = document.getElementById("ans3");
 var answer4 = document.getElementById("ans4");
+var result = document.getElementById("result");
 
-var question = document.getElementById("question");
+// Score results at end of quiz variables
 var scoreWrapper = document.getElementById("score");
 var scoreText = document.getElementById("score-text");
-var tryAgain = document.querySelector(".try-again");
-var submitBtn = document.getElementById("submit");
 
+// Scoreboard variables 
 var scoreBoard = document.querySelector(".score-board");
-var viewHighscoresBtn = document.querySelector(".highscore");
 var form = document.getElementById("form");
-var userScores = [];
 var userInitials = document.getElementById("intials");
-var scoreList = document.getElementById("score-list")
-var timeLeft = 120;
-var id = 0;
+var scoreList = document.getElementById("score-list");
+var userScores = [];
+
+// Button variables
+var viewHighscoresBtn = document.querySelector(".highscore");
+var answerBtn = document.querySelector(".answer");
+var tryAgain = document.querySelector(".try-again");
+var startBtn = document.getElementById("startBtn");
+
 
 
 
