@@ -229,6 +229,22 @@ header {
     font-weight: bold;
 }
 
+#returnBtn {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--primary);
+    border: 3px solid var(--secondary);
+    border-radius: .9em;
+}
+
+#returnBtn:hover {
+    box-shadow: inset 3px 3px 4px 5px var(--secondary);
+}
+
+#returnBtn:active {
+    padding: 3px;
+}
+
 
 /* Media Queries */
 @media screen and (max-width: 980px) {
