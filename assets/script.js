@@ -134,15 +134,17 @@ var answer3 = document.getElementById("ans3");
 var answer4 = document.getElementById("ans4");
 
 var question = document.getElementById("question");
-var score = document.getElementById("score");
+var scoreWrapper = document.getElementById("score");
 var scoreText = document.getElementById("score-text");
 var tryAgain = document.querySelector(".try-again");
 var submitBtn = document.getElementById("submit");
-var userInitials = document.getElementById("intials");
+
 var scoreBoard = document.querySelector(".score-board");
 var viewHighscoresBtn = document.querySelector(".highscore");
 var form = document.getElementById("form");
 var userScores = [];
+var userInitials = document.getElementById("intials");
+var scoreList = document.getElementById("score-list")
 var timeLeft = 120;
 var id = 0;
 
@@ -151,6 +153,33 @@ var id = 0;
 
 
 /*                 Functions              */
+function loadUserScores() {
+    scoreList.innerHTML = "";
+
+    for (var i = 0; i < userScores.length; i++) {
+        var score = userScores[i];
+
+        var li = document.createElement("li");
+        li.textContent = score;
+        li.setAttribute("data-index", i);
+
+        scoreList.appendChild(li);
+    }
+};
+
+function loadScores() {
+    var storedScores = JSON.parse(localStorage.getItem("userScores"));
+        if (storedScores !== null) {
+            userScores = storedScores;
+         };
+    loadUserScores();
+};
+
+function storeScore() {
+    localStorage.setItem("userScores", JSON.stringify(userScores));
+};
+
+
 function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
@@ -159,14 +188,14 @@ function countdown() {
             clearInterval(timeInterval);
             timer.textContent = "0";
             quiz.style.display = "none";
-            score.style.display = "flex";
+            scoreWrapper.style.display = "flex";
             scoreText.innerText = "Sorry you ran out of time, Better luck next time!";
             form.style.display = "none";
-        } else if (id === 10 && score.style.display === "none") {
+        } else if (id === 10 && scoreWrapper.style.display === "none") {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
-            score.style.display = "flex";
+            scoreWrapper.style.display = "flex";
             tryAgain.style.display = "none";
             form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
@@ -194,26 +223,23 @@ function iterate(id) {
 
 };
 
-function saveScore() {
-    var userScore = {
-        score: userInitials.value.trim().toUpperCase() + ":" + " " + timeLeft,
-    };
-    userScore.push(score);
-    localStorage.setItem("userScore", JSON.stringify(userScore));
-};
-
-function viewHighscores() {
-    var highScore = JSON.parse(localStorage.getItem("userScore"));
-    if (highScore !== null) {
-        document.getElementById("user-score").innerHTML = highScore.score;
-    } else {
-        return;
-    }
-};
-
-
 
 /*           Event Listners           */
+form.addEventListener("submit", function(){
+    //event.preventDefault();
+    
+    var initalsText = userInitials.value.trim().toUpperCase() + timeLeft;
+    if (initalsText === "") {
+        return;
+    }
+
+    userScores.push(initalsText);
+
+    storeScore();
+    loadUserScores();
+});
+
+
 // Start button
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
@@ -247,6 +273,7 @@ answers.forEach(answer => {
 
     });
 });
+
 // Try Agian button
 tryAgain.addEventListener("click", function () {
     timeLeft = 120;
@@ -254,19 +281,11 @@ tryAgain.addEventListener("click", function () {
     countdown();
     iterate(id);
     quiz.style.display = "flex";
-    score.style.display = "none";
-});
-
-
-// Submit button
-submitBtn.addEventListener("click", function (event) {
-    event.preventDefault;
-    saveScore();
+    scoreWrapper.style.display = "none";
 });
 
 // View Highscores button
 viewHighscoresBtn.addEventListener("click", function () {
-    viewHighscores();
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
         startBtn.style.display = "none";
@@ -274,7 +293,7 @@ viewHighscoresBtn.addEventListener("click", function () {
 });
 
 
-
+loadScores();
 
 
 

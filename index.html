@@ -56,17 +56,17 @@
         <button class="try-again">Try Again?</button>
 
         <form class="form-container" id="form">
-            <h1>Enter your intials and click the button to save your score</h1><br>
             <input type="text" id="intials" placeholder="enter your intials" min="2" max="2" required/>
             <label for="initials" id="intials-label"></label>
-            <button type="submit" id="submit">SAVE</button>
+            <!--<button type="submit" id="submit">SAVE</button>-->
         </form>
     </section>
 
     <!--Scoreboard-->
     <section class="score-board" style="display: none;">
         <div class="scoreboard-container">
-             <span id="user-score"></span>
+             <ul id="score-list">
+             </ul>
         </div>
         <div class="return-button">
             <button id="returnBtn">Return</button>
