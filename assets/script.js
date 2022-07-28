@@ -304,6 +304,7 @@ viewHighscoresBtn.addEventListener("click", function () {
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
         startBtn.style.display = "none";
+        quiz.style.display = "none";
     }
 });
 
