@@ -196,6 +196,7 @@ function storeScore() {
 
 function clearScores() {
     localStorage.clear()
+    userScores = [];
 };
 
 // Function for the timer
