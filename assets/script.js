@@ -210,6 +210,8 @@ function countdown() {
             scoreWrapper.style.display = "flex";
             scoreText.innerText = "Sorry you ran out of time, Better luck next time!";
             form.style.display = "none";
+            returnStrtBtn.style.display = "flex";
+            tryAgain.style.display = "flex";
         } else if (id === 10 && scoreWrapper.style.display === "none") {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
@@ -283,6 +285,7 @@ form.addEventListener("submit", function (event) {
         scoreWrapper.style.display = "none";
     } else {
         scoreBoard.style.display = "none";
+        scoreWrapper.style.display = "flex";
     };
 
     if (viewHighscoresBtn.disabled = true) {

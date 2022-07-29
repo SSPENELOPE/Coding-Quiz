@@ -9,6 +9,8 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&display=swap');
+
 body {
     background-image: url(./images/bubbles.jpg);
     background-size: cover;
@@ -31,6 +33,7 @@ header {
     height: 12vh;
     width: 100vw;
     border-bottom: 7px solid purple;
+    font-family: 'Ibarra Real Nova', serif;
 }
 
 .time {
