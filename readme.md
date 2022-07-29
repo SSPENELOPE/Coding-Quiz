@@ -24,9 +24,9 @@ You can view and take this quiz at (https://sspenelope.github.io/Coding-Quiz/?)
 
 - All of the wonderful developers who were willing to put their snippets and solutions on stackoverflow for other junior developers like myself who get stuck or might not understand how to add something.
 
-- GeeksForGeeks for showing me how  to insert arrays withing objects which helped my form my questions array
+- GeeksForGeeks, for showing me how  to create an array of objects, with arrays within the objects
 
-- The wonderful creators of W3Schools for all the tips and tricks useful information when it comes to anything coding related
+- The wonderful creators of W3Schools for all the tips, tricks and useful information when it comes to anything coding related
 
 - UofM Coding bootcamp for the base requirements of what this project needed to include
 
