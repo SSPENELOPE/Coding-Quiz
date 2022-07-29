@@ -283,13 +283,17 @@ form.addEventListener("submit", function(event){
 // Start button
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
-        quiz.style.display = "flex";
-        viewHighscoresBtn.disabled = true;
-        scoreWrapper.style.display = "none";
+        quiz.style.display = "flex";  
     } else {
         quiz.style.display = "none";
     }
+    if (scoreWrapper.style.display === "flex") {
+        scoreWrapper.style.display = "none";
+    }
+    viewHighscoresBtn.disabled = true;
     start.setAttribute("style", "display: none;");
+    quiz.setAttribute("style", "display: flex;");
+    id = 0;
     countdown();
     iterate(id);
 
@@ -333,13 +337,13 @@ viewHighscoresBtn.addEventListener("click", function () {
 });
 
 // Return button
-returnBtn.addEventListener("click", function(){
+returnBtn.addEventListener("click", function(event) {
+    event.preventDefault();
     if (scoreBoard.style.display === "flex") {
         scoreBoard.style.display = "none";
         scoreWrapper.style.display = "none";
         start.style.display = "flex";
         timeLeft = 120;
-        iterate(id);
     };
 });
 
