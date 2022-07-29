@@ -28,5 +28,7 @@ You can view and take this quiz at (https://sspenelope.github.io/Coding-Quiz/?)
 
 - The wonderful creators of W3Schools for all the tips, tricks and useful information when it comes to anything coding related
 
+- All the assisants at askBCS that helped me work through tough errors I ran into, without your help this would have been alot more difficult
+
 - UofM Coding bootcamp for the base requirements of what this project needed to include
 
