@@ -121,14 +121,14 @@ var questions = [{
 /*        Variables         */
 
 // General variables
-var timer =document.getElementById("timer");
+var timer = document.getElementById("timer");
 var start = document.querySelector(".start-button");
 var quiz = document.getElementById("quiz");
 var timeLeft = 120;
 
 
 
-// Question and Answer button variables
+// Question and Answer variables
 var question = document.getElementById("question");
 var id = 0;
 
@@ -182,10 +182,10 @@ function loadUserScores() {
 // Load scores on page start
 function loadScores() {
     var storedScores = JSON.parse(localStorage.getItem("userScores"));
-        if (storedScores !== null) {
-            userScores = storedScores;
-         };
-         // Add loadUserScores function to add the scores on page start
+    if (storedScores !== null) {
+        userScores = storedScores;
+    };
+    // Add loadUserScores function to add the scores on page start
     loadUserScores();
 };
 
@@ -196,7 +196,7 @@ function storeScore() {
 
 function clearScores() {
     localStorage.clear()
-}
+};
 
 // Function for the timer
 function countdown() {
@@ -245,19 +245,22 @@ function iterate(id) {
 
 // Function to clear the scoreboard in highscores
 function reloadScoreboard() {
-   while (scoreList.hasChildNodes()) {
-    scoreList.removeChild(scoreList.firstChild);
-   };
-   clearScores();
+    while (scoreList.hasChildNodes()) {
+        scoreList.removeChild(scoreList.firstChild);
+    };
+    clearScores();
 };
 
 
 
+
+
 /*           Event Listners           */
+
 // Submit button on for input at end of quiz
-form.addEventListener("submit", function(event){
+form.addEventListener("submit", function (event) {
     event.preventDefault();
-    
+
     var initalsText = userInitials.value.trim().toUpperCase() + ":" + " " + timeLeft;
     if (initalsText === "") {
         return;
@@ -272,7 +275,7 @@ form.addEventListener("submit", function(event){
 
     if (viewHighscoresBtn.disabled = true) {
         viewHighscoresBtn.disabled = false;
-    }
+    };
 
     userScores.push(initalsText);
 
@@ -283,13 +286,14 @@ form.addEventListener("submit", function(event){
 // Start button
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
-        quiz.style.display = "flex";  
+        quiz.style.display = "flex";
     } else {
         quiz.style.display = "none";
-    }
+    };
+
     if (scoreWrapper.style.display === "flex") {
         scoreWrapper.style.display = "none";
-    }
+    };
     viewHighscoresBtn.disabled = true;
     start.setAttribute("style", "display: none;");
     quiz.setAttribute("style", "display: flex;");
@@ -333,11 +337,11 @@ viewHighscoresBtn.addEventListener("click", function () {
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
         start.style.display = "none";
-    }
+    };
 });
 
 // Return button
-returnBtn.addEventListener("click", function(event) {
+returnBtn.addEventListener("click", function (event) {
     event.preventDefault();
     if (scoreBoard.style.display === "flex") {
         scoreBoard.style.display = "none";
@@ -348,14 +352,14 @@ returnBtn.addEventListener("click", function(event) {
 });
 
 // Return to start button
-returnStrtBtn.addEventListener("click", function(){
+returnStrtBtn.addEventListener("click", function () {
     if (scoreWrapper.style.display === "flex") {
         scoreWrapper.style.display = "none";
         start.style.display = "flex";
         viewHighscoresBtn.disabled = false;
-        timeLeft = 120; 
+        timeLeft = 120;
         iterate(id);
-    }
+    };
 })
 
 
