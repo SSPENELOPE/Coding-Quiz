@@ -109,10 +109,10 @@ var questions = [{
 {
     id: 10,
     question: "END OF QUIZ",
-    answer: [{ text: "Thank You" },
-    { text: "For Taking" },
-    { text: "My" },
-    { text: "Coding Quiz" }
+    answer: [{ text: "Thank You", isCorrect: true },
+    { text: "For Taking", isCorrect: true },
+    { text: "My", isCorrect: true },
+    { text: "Coding Quiz", isCorrect: true }
     ]
 }
 ];
@@ -121,7 +121,7 @@ var questions = [{
 /*        Variables         */
 
 // General variables
-var timer = document.getElementById("timer");
+var timer =document.getElementById("timer");
 var start = document.querySelector(".start-button");
 var quiz = document.getElementById("quiz");
 var timeLeft = 120;
@@ -131,6 +131,7 @@ var timeLeft = 120;
 // Question and Answer button variables
 var question = document.getElementById("question");
 var id = 0;
+
 var answers = document.querySelectorAll(".answer");
 var answer1 = document.getElementById("ans1");
 var answer2 = document.getElementById("ans2");
@@ -239,6 +240,7 @@ function iterate(id) {
 
 };
 
+// Function to clear the scoreboard in highscores
 function reloadScoreboard() {
    while (scoreList.hasChildNodes()) {
     scoreList.removeChild(scoreList.firstChild);
@@ -247,8 +249,8 @@ function reloadScoreboard() {
 };
 
 
-/*           Event Listners           */
 
+/*           Event Listners           */
 // Submit button on for input at end of quiz
 form.addEventListener("submit", function(){
     //event.preventDefault();
@@ -264,7 +266,6 @@ form.addEventListener("submit", function(){
     loadUserScores();
 });
 
-
 // Start button
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
@@ -278,7 +279,6 @@ startBtn.addEventListener("click", function () {
     iterate(id);
 
 });
-
 
 // Answer buttons
 answers.forEach(answer => {
@@ -326,6 +326,7 @@ returnBtn.addEventListener("click", function(){
 });
 
 
+// Imediatly load scores
 loadScores();
 
 
