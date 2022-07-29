@@ -157,6 +157,8 @@ var tryAgain = document.querySelector(".try-again");
 var startBtn = document.getElementById("startBtn");
 var returnBtn = document.getElementById("returnBtn");
 var clearBtn = document.getElementById("clearBtn");
+var returnStrtBtn = document.querySelector(".return-start");
+
 
 
 
@@ -214,6 +216,7 @@ function countdown() {
             quiz.style.display = "none"
             scoreWrapper.style.display = "flex";
             tryAgain.style.display = "none";
+            returnStrtBtn.style.display = "none";
             form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
         }
@@ -252,12 +255,23 @@ function reloadScoreboard() {
 
 /*           Event Listners           */
 // Submit button on for input at end of quiz
-form.addEventListener("submit", function(){
-    //event.preventDefault();
+form.addEventListener("submit", function(event){
+    event.preventDefault();
     
     var initalsText = userInitials.value.trim().toUpperCase() + ":" + " " + timeLeft;
     if (initalsText === "") {
         return;
+    };
+
+    if (scoreBoard.style.display === "none") {
+        scoreBoard.style.display = "flex";
+        scoreWrapper.style.display = "none";
+    } else {
+        scoreBoard.style.display = "none";
+    };
+
+    if (viewHighscoresBtn.disabled = true) {
+        viewHighscoresBtn.disabled = false;
     }
 
     userScores.push(initalsText);
@@ -270,7 +284,8 @@ form.addEventListener("submit", function(){
 startBtn.addEventListener("click", function () {
     if (quiz.style.display === "none" && id <= 9) {
         quiz.style.display = "flex";
-
+        viewHighscoresBtn.disabled = true;
+        scoreWrapper.style.display = "none";
     } else {
         quiz.style.display = "none";
     }
@@ -313,7 +328,7 @@ tryAgain.addEventListener("click", function () {
 viewHighscoresBtn.addEventListener("click", function () {
     if (scoreBoard.style.display === "none") {
         scoreBoard.style.display = "flex";
-        startBtn.style.display = "none";
+        start.style.display = "none";
     }
 });
 
@@ -321,9 +336,24 @@ viewHighscoresBtn.addEventListener("click", function () {
 returnBtn.addEventListener("click", function(){
     if (scoreBoard.style.display === "flex") {
         scoreBoard.style.display = "none";
-        startBtn.style.display = "flex";
+        scoreWrapper.style.display = "none";
+        start.style.display = "flex";
+        timeLeft = 120;
+        iterate(id);
     };
 });
+
+// Return to start button
+returnStrtBtn.addEventListener("click", function(){
+    if (scoreWrapper.style.display === "flex") {
+        scoreWrapper.style.display = "none";
+        start.style.display = "flex";
+        viewHighscoresBtn.disabled = false;
+        timeLeft = 120; 
+        iterate(id);
+    }
+})
+
 
 
 // Imediatly load scores

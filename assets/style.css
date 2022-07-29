@@ -25,7 +25,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: var(--secondary);
     height: 12vh;
@@ -161,7 +161,8 @@ header {
     font-weight: bold;
 }
 
-.try-again {
+.try-again,
+.return-start {
     margin-top: 15px;
     font-size: 20px;
     font-weight: 700;
@@ -173,7 +174,8 @@ header {
     );
 }
 
-.try-again:hover {
+.try-again:hover,
+.return-start:hover {
     box-shadow: 3px 3px 4px var(--primary);
     box-shadow: inset 2px 2px 3px var(--primary);
 }
@@ -241,7 +243,6 @@ header {
     height: 20vh;
 }
 
-#returnBtn,
 #clearBtn {
     margin: 10px;
     padding: 15px;
@@ -252,16 +253,29 @@ header {
     border-radius: .9em;
 }
 
-#returnBtn:hover,
 #clearBtn:hover {
     box-shadow: inset 3px 3px 4px 5px var(--secondary);
 }
 
-#returnBtn:active,
 #clearBtn:active {
     padding: 17px;
 }
 
+#returnBtn {
+    padding: 15px;
+    background-color: var(--primary);
+    border: 3px solid var(--secondary);
+    border-radius: .7em;
+    }
+    
+    #returnBtn:hover {
+    box-shadow: 3px 3px 5px 7px var(--primary);
+    }
+    
+    #returnBtn:active {
+    padding: 17px;
+    color: green;
+    }
 
 
 /* Media Queries */
