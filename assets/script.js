@@ -219,7 +219,8 @@ function countdown() {
             returnStrtBtn.style.display = "none";
             form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
-        }
+        };
+       
     }, 1000);
 };
 
@@ -240,7 +241,18 @@ function iterate(id) {
     answer2.value = questions[id].answer[1].isCorrect;
     answer3.value = questions[id].answer[2].isCorrect;
     answer4.value = questions[id].answer[3].isCorrect;
-
+    
+    if (id === 10) {
+        answer1.disabled = true;
+        answer2.disabled = true;
+        answer3.disabled = true;
+        answer4.disabled = true;
+    } else {
+        answer1.disabled = false;
+        answer2.disabled = false;
+        answer3.disabled = false;
+        answer4.disabled = false;
+    };
 };
 
 // Function to clear the scoreboard in highscores
