@@ -24,7 +24,7 @@ You can view and take this quiz at (https://sspenelope.github.io/Coding-Quiz/?)
 
 - GeeksForGeeks for showing me how  to insert arrays withing objects which helped my form my questions array
 
--The wonderful creators of W3Schools for all the tips and tricks useful information when it comes to anything coding related
+- The wonderful creators of W3Schools for all the tips and tricks useful information when it comes to anything coding related
 
--UofM Coding bootcamp for the base requirements of what this project needed to include
+- UofM Coding bootcamp for the base requirements of what this project needed to include
 
