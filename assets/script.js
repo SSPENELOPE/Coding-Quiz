@@ -1,3 +1,4 @@
+/*  Questions Array  */ 
 var questions = [{
     id: 0,
     question: "What do we use to change the style of an elment in JavaScript?",
