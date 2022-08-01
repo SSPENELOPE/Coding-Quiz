@@ -152,7 +152,6 @@ var userScores = [];
 
 // Button variables
 var viewHighscoresBtn = document.querySelector(".highscore");
-var answerBtn = document.querySelector(".answer");
 var tryAgain = document.querySelector(".try-again");
 var startBtn = document.getElementById("startBtn");
 var returnBtn = document.getElementById("returnBtn");
@@ -223,7 +222,7 @@ function countdown() {
             form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
         };
-       
+
     }, 1000);
 };
 
@@ -244,7 +243,7 @@ function iterate(id) {
     answer2.value = questions[id].answer[1].isCorrect;
     answer3.value = questions[id].answer[2].isCorrect;
     answer4.value = questions[id].answer[3].isCorrect;
-    
+
     if (id === 10) {
         answer1.disabled = true;
         answer2.disabled = true;
