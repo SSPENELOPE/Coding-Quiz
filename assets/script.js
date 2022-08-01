@@ -153,9 +153,12 @@ var userScores = [];
 
 // Button variables
 var viewHighscoresBtn = document.querySelector(".highscore");
+var tryAgain = document.querySelector(".try-again");
 var startBtn = document.getElementById("startBtn");
 var returnBtn = document.getElementById("returnBtn");
 var clearBtn = document.getElementById("clearBtn");
+var returnStrtBtn = document.querySelector(".return-start");
+
 
 
 
@@ -191,7 +194,6 @@ function storeScore() {
     localStorage.setItem("userScores", JSON.stringify(userScores));
 };
 
-// Clear Scores function
 function clearScores() {
     localStorage.clear()
     userScores = [];
@@ -202,11 +204,22 @@ function countdown() {
     var timeInterval = setInterval(function () {
         timeLeft--;
         timer.textContent = timeLeft;
-          if (id === 10 || timeLeft <= 0) {
+        if (timeLeft <= 0) {
+            clearInterval(timeInterval);
+            timer.textContent = "0";
+            quiz.style.display = "none";
+            scoreWrapper.style.display = "flex";
+            scoreText.innerText = "Sorry you ran out of time, A score of zero is not worth saving. Better luck next time!";
+            form.style.display = "none";
+            returnStrtBtn.style.display = "flex";
+            tryAgain.style.display = "flex";
+        } else if (id === 10 && scoreWrapper.style.display === "none") {
             clearInterval(timeInterval);
             timer.textContent = timeLeft;
             quiz.style.display = "none"
             scoreWrapper.style.display = "flex";
+            tryAgain.style.display = "none";
+            returnStrtBtn.style.display = "none";
             form.style.display = "flex";
             scoreText.innerText = "Congratulations your score is: " + timeLeft;
         };
@@ -232,7 +245,6 @@ function iterate(id) {
     answer3.value = questions[id].answer[2].isCorrect;
     answer4.value = questions[id].answer[3].isCorrect;
 
-    // Disable answer buttons on id.10 to prevent errors
     if (id === 10) {
         answer1.disabled = true;
         answer2.disabled = true;
@@ -326,6 +338,16 @@ answers.forEach(answer => {
     });
 });
 
+// Try Agian button
+tryAgain.addEventListener("click", function () {
+    timeLeft = 120;
+    id = 0;
+    countdown();
+    iterate(id);
+    quiz.style.display = "flex";
+    scoreWrapper.style.display = "none";
+});
+
 // View Highscores button
 viewHighscoresBtn.addEventListener("click", function () {
     if (scoreBoard.style.display === "none") {
@@ -344,6 +366,18 @@ returnBtn.addEventListener("click", function (event) {
         timeLeft = 120;
     };
 });
+
+// Return to start button
+returnStrtBtn.addEventListener("click", function () {
+    if (scoreWrapper.style.display === "flex") {
+        scoreWrapper.style.display = "none";
+        start.style.display = "flex";
+        viewHighscoresBtn.disabled = false;
+        timeLeft = 120;
+        iterate(id);
+    };
+})
+
 
 
 // Imediatly load scores
