@@ -33,5 +33,5 @@ You can view and take this quiz at (https://sspenelope.github.io/Coding-Quiz/?)
 - UofM Coding bootcamp for the base requirements of what this project needed to include and my awesome insturctors for helping me learn all the tools I would come to need for this project 
 
 # Features 
-- Note that during the quiz the View high scores  button will be disabled. When you are at the end of the game or at the start menu you will be able to view the high scores. This feature was implemented to mitigate bugs and prevent errors during the actual quiz. 
+- Note that during the quiz the View high scores button will be disabled. When you are at the end of the game or at the start menu you will be able to view the high scores. This feature was implemented to mitigate bugs and prevent errors during the actual quiz. 
 
